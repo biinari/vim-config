@@ -1868,7 +1868,7 @@ if s:alt_arrays
   " need to make a region for the 'list' keyword as well!!!
   " TODO: should the error highlighting be optional???
   " TODO: only allow variables and stuff inside the list() construct
-  syn region phpListRegion contained matchgroup=phpList start=/\<list(/ end=/)/
+  syn region phpListRegion contained matchgroup=phpList start=/\<list\s*(/ end=/)/
         \ keepend extend contains=@phpClExpressions,phpListComma
         \ matchgroup=Error end=/;/
   syn match phpListComma contained display /,/
