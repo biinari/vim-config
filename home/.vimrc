@@ -5,6 +5,7 @@ set shiftround
 set autoindent
 set expandtab
 set smarttab
+set scrolloff=5
 "set nosmartindent
 "inoremap # X#
 
