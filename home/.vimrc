@@ -56,3 +56,6 @@ let Grep_Skip_Files='*.bak *~ *.swp'
 "set titlestring=%t	" Set Window title to reflect filename (was %F)
 
 filetype plugin on
+
+" Tags
+map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q .<CR>
