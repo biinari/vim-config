@@ -9,8 +9,9 @@ set scrolloff=5
 "set nosmartindent
 "inoremap # X#
 
-autocmd BufEnter *.py setl shiftwidth=4 tabstop=4 expandtab
+autocmd BufEnter *.py setl et ts=4 sw=4
 "autocmd BufEnter *.py inoremap # X#
+autocmd BufEnter *.rb setl et ts=2 sw=2
 
 autocmd BufEnter *.coffee setl et ts=4 sw=4
 autocmd BufEnter *.sass setl et ts=2 sw=2
