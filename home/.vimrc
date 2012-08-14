@@ -15,6 +15,7 @@ autocmd BufEnter *.rb setl et ts=2 sw=2
 
 autocmd BufEnter *.coffee setl et ts=4 sw=4
 autocmd BufEnter *.sass setl et ts=2 sw=2
+autocmd BufEnter *.html setl et ts=2 sw=2
 
 set nocompatible	" Use Vim defaults
 set history=10		" keep 10 lines of command history
