@@ -60,4 +60,4 @@ let Grep_Skip_Files='*.bak *~ *.swp'
 filetype plugin on
 
 " Tags
-map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" .<CR>
+map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="wp-admin" .<CR>
