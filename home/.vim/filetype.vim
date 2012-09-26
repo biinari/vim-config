@@ -13,4 +13,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.hsc setfiletype haskell
   au! BufRead,BufNewFile *.sass setfiletype sass
   au! BufRead,BufNewFile *.tpl setfiletype smarty
+  au! BufRead,BufNewFile Capfile,capfile setfiletype ruby
 augroup END
