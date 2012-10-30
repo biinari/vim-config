@@ -14,4 +14,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.sass setfiletype sass
   au! BufRead,BufNewFile *.tpl setfiletype smarty
   au! BufRead,BufNewFile capfile,Capfile setfiletype ruby
+  au! BufRead,BufNewFile */system/apache2/* setfiletype apache
 augroup END
