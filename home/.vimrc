@@ -1,3 +1,4 @@
+"set binary " fix dos files to unix
 set mouse=a
 set shiftwidth=4
 set tabstop=4
