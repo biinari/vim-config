@@ -11,7 +11,7 @@ set scrolloff=5
 
 autocmd BufEnter *.py setl et ts=4 sw=4
 "autocmd BufEnter *.py inoremap # X#
-autocmd BufEnter *.rb,Capfile,capfile setl et ts=2 sw=2
+autocmd BufEnter *.rb,Capfile,capfile,*.thor setl et ts=2 sw=2
 
 autocmd BufEnter *.coffee setl et ts=4 sw=4
 autocmd BufEnter *.sass setl et ts=2 sw=2
