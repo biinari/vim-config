@@ -63,6 +63,7 @@ Bundle 'tpope/vim-haml'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'bash-support.vim'
 
 let php_sql_query = 0
 let php_htmlInStrings = 0
