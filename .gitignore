@@ -1,1 +1,3 @@
 .netrwhist
+# Vundle
+home/.vim/bundle/

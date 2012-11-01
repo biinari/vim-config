@@ -20,6 +20,7 @@ autocmd BufEnter *.html setl et ts=2 sw=2
 autocmd BufEnter *.tpl setl et ts=2 sw=2
 
 set nocompatible	" Use Vim defaults
+filetype off        " required by Vundle
 set history=10		" keep 10 lines of command history
 set ruler			" Show the cursor position all the time
 set showmatch		" Show matching brackets
@@ -42,6 +43,25 @@ hi comment	guifg=blue	ctermfg=blue
 
 set runtimepath+=/usr/share/lilypond/2.12.2/vim/
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required by Vundle
+Bundle 'gmarik/vundle'
+
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails.git'
+Bundle 'othree/html5.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'tpope/vim-haml'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
 let php_sql_query = 0
 let php_htmlInStrings = 0
 let php_folding = 3
@@ -59,7 +79,7 @@ let Grep_Skip_Files='*.bak *~ *.swp'
 "set title
 "set titlestring=%t	" Set Window title to reflect filename (was %F)
 
-filetype plugin on
+filetype plugin indent on   " required by Vundle
 
 " Tags
 map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="wp-admin" .<CR>
