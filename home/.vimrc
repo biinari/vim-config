@@ -65,6 +65,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'bash-support.vim'
 Bundle 'smarty-syntax'
+Bundle 'matchit.zip'
 
 let php_sql_query = 0
 let php_htmlInStrings = 0
