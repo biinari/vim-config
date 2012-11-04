@@ -64,6 +64,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'bash-support.vim'
+Bundle 'smarty-syntax'
 
 let php_sql_query = 0
 let php_htmlInStrings = 0
