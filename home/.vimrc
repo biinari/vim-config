@@ -45,6 +45,15 @@ hi comment	guifg=blue	ctermfg=blue
 
 set runtimepath+=/usr/share/lilypond/2.12.2/vim/
 
+let s:hasVundle=1
+let s:vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(s:vundle_readme)
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    let s:hasVundle=0
+endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -67,6 +76,12 @@ Bundle 'FuzzyFinder'
 Bundle 'bash-support.vim'
 Bundle 'smarty-syntax'
 Bundle 'matchit.zip'
+
+if s:hasVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
 
 let php_sql_query = 0
 let php_htmlInStrings = 0
