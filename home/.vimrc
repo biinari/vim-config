@@ -70,6 +70,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'rodjek/vim-puppet'
+Bundle 'joonty/vdebug'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
