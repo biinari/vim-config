@@ -16,4 +16,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile capfile,Capfile setfiletype ruby
   au! BufRead,BufNewFile */system/apache2/* setfiletype apache
   au! BufRead,BufNewFile */crontabs/* setfiletype crontab
+  au! BufRead,BufNewFile *.coffee setfiletype coffee
 augroup END

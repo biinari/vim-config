@@ -14,7 +14,7 @@ set fo-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
 
 autocmd BufEnter *.py setl et ts=4 sw=4
 "autocmd BufEnter *.py inoremap # X#
-autocmd BufEnter *.rb,Capfile,capfile,*.thor setl et ts=2 sw=2
+autocmd BufEnter *.rb,Capfile,capfile,*.thor,Vagrantfile setl et ts=2 sw=2
 
 autocmd BufEnter *.coffee setl et ts=4 sw=4
 autocmd BufEnter *.sass setl et ts=2 sw=2
