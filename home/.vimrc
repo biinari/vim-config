@@ -75,7 +75,6 @@ Bundle 'jtratner/vim-flavored-markdown'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'bash-support.vim'
 Bundle 'smarty-syntax'
 Bundle 'matchit.zip'
 
