@@ -71,6 +71,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'rodjek/vim-puppet'
 Bundle 'joonty/vdebug'
+Bundle 'jtratner/vim-flavored-markdown'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
