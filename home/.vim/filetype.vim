@@ -14,8 +14,11 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.sass setfiletype sass
   au! BufRead,BufNewFile *.tpl setfiletype smarty
   au! BufRead,BufNewFile capfile,Capfile setfiletype ruby
+  au! BufRead,BufNewFile Guardfile setfiletype ruby
   au! BufRead,BufNewFile */system/apache2/* setfiletype apache
   au! BufRead,BufNewFile */crontabs/* setfiletype crontab
   au! BufRead,BufNewFile *.md,*.markdown setfiletype ghmarkdown
   au! BufRead,BufNewFile *.coffee setfiletype coffee
+  au! BufRead,BufNewFile *.fdoc,*.fdoc.* setfiletype yaml
+  au! BufRead,BufNewFile *.rdoc setfiletype rdoc
 augroup END

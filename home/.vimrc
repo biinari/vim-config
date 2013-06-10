@@ -14,12 +14,15 @@ set fo-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
 
 autocmd BufEnter *.py setl et ts=4 sw=4
 "autocmd BufEnter *.py inoremap # X#
-autocmd BufEnter *.rb,Capfile,capfile,*.thor,Vagrantfile setl et ts=2 sw=2
+autocmd BufEnter *.rb,Capfile,capfile,Guardfile,Rakefile,*.thor,Vagrantfile setl et ts=2 sw=2
+autocmd BufEnter *.fdoc,*.fdoc.* setl et ts=2 sw=2 indentexpr= indentkeys=
 
 autocmd BufEnter *.coffee setl et ts=4 sw=4
 autocmd BufEnter *.sass setl et ts=2 sw=2
 autocmd BufEnter *.html setl et ts=2 sw=2
 autocmd BufEnter *.tpl setl et ts=2 sw=2
+autocmd BufEnter *.erb setl et ts=2 sw=2
+autocmd BufEnter *.php setl ts=4 sw=4 indentexpr= indentkeys= ai si
 
 set nocompatible	" Use Vim defaults
 filetype off        " required by Vundle
@@ -76,6 +79,7 @@ Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'L9'
 Bundle 'smarty-syntax'
 Bundle 'matchit.zip'
+Bundle 'RDoc'
 
 if s:hasVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
