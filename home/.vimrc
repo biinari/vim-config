@@ -25,8 +25,8 @@ autocmd BufEnter *.tpl setl et ts=2 sw=2
 autocmd BufEnter *.erb setl et ts=2 sw=2
 autocmd BufEnter *.php setl ts=4 sw=4 indentexpr= indentkeys= ai si
 
-set nocompatible	" Use Vim defaults
-filetype off        " required by Vundle
+set nocompatible	" be iMproved
+filetype off      " required by Vundle
 set history=10		" keep 10 lines of command history
 set ruler			" Show the cursor position all the time
 set showmatch		" Show matching brackets
