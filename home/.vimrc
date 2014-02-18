@@ -9,6 +9,7 @@ set smarttab
 set scrolloff=4
 set fo-=r " Do not automatically insert a comment leader after an enter
 set fo-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
+set fo-=j " Remove a comment leader when joining lines
 "set nosmartindent
 "inoremap # X#
 
