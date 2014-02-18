@@ -96,8 +96,8 @@ if s:hasVundle == 0
     :BundleInstall
 endif
 
-let php_sql_query = 0
-let php_htmlInStrings = 0
+"let php_sql_query = 1
+"let php_html_in_strings = 1
 let php_folding = 3
 let php_nested_functions = 1
 
