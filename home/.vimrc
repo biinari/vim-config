@@ -25,27 +25,27 @@ autocmd BufEnter *.tpl setl et ts=2 sw=2
 autocmd BufEnter *.erb setl et ts=2 sw=2
 autocmd BufEnter *.php setl ts=4 sw=4 indentexpr= indentkeys= ai si
 
-set nocompatible	" be iMproved
-filetype off      " required by Vundle
-set history=10		" keep 10 lines of command history
-set ruler			" Show the cursor position all the time
-set showmatch		" Show matching brackets
+set nocompatible " be iMproved
+filetype off     " required by Vundle
+set history=50   " keep 50 lines of command history
+set ruler        " Show the cursor position all the time
+set showmatch    " Show matching brackets
 
-set nowb			" disable backup
+set nowb         " disable backup
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes+=.hi
 
-"set guioptions-=T	" disable the toolbar
-set guioptions=aei	" Autoselect, tab pages, vim icon.
+"set guioptions-=T " disable the toolbar
+set guioptions=aei " Autoselect, tab pages, vim icon.
 let g:tex_flavor="latex"
 set guifont=Monospace\ 9
 
 syntax on
 set background=dark
 colorscheme default
-hi comment	guifg=blue	ctermfg=blue
+hi comment guifg=blue ctermfg=blue
 
 set runtimepath+=/usr/share/lilypond/2.12.2/vim/
 
