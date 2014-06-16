@@ -27,4 +27,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.{mustache,handlebars,hbs,hogan,hulk,hjs}{,.erb} set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
   au! BufRead,BufNewFile /etc/systemd/system/*/*.conf setfiletype systemd
   au! BufRead,BufNewFile *.json,*.jsonp setfiletype json
+  au! BufRead,BufNewFile /etc/php/php-fpm.conf,/etc/php/fpm.d/* setfiletype dosini
 augroup END
