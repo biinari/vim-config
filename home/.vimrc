@@ -49,51 +49,54 @@ hi comment	guifg=blue	ctermfg=blue
 
 set runtimepath+=/usr/share/lilypond/2.12.2/vim/
 
-let s:hasVundle=1
-let s:vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(s:vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    let s:hasVundle=0
-endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if !exists('s:includedVundle')
+  let s:includedVundle = 1
+  let s:hasVundle=1
+  let s:vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+  if !filereadable(s:vundle_readme)
+      echo "Installing Vundle..."
+      echo ""
+      silent !mkdir -p ~/.vim/bundle
+      silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+      let s:hasVundle=0
+  endif
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
 
-" let Vundle manage Vundle
-" required by Vundle
-Bundle 'gmarik/vundle'
+  " let Vundle manage Vundle
+  " required by Vundle
+  Bundle 'gmarik/vundle'
 
-" original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-rake.git'
-Bundle 'othree/html5.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'rodjek/vim-puppet'
-Bundle 'joonty/vdebug'
-Bundle 'jtratner/vim-flavored-markdown'
-Bundle 'slim-template/vim-slim'
-Bundle 'StanAngeloff/php.vim'
-Bundle 'exu/pgsql.vim'
-Bundle 'mustache/vim-mustache-handlebars'
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'smarty-syntax'
-Bundle 'matchit.zip'
-Bundle 'RDoc'
-Bundle 'bundler'
-Bundle 'nginx.vim'
-Bundle 'haproxy'
+  " original repos on github
+  Bundle 'tpope/vim-fugitive'
+  Bundle 'vim-ruby/vim-ruby'
+  Bundle 'tpope/vim-rails.git'
+  Bundle 'tpope/vim-rake.git'
+  Bundle 'othree/html5.vim'
+  Bundle 'kchmck/vim-coffee-script'
+  Bundle 'cakebaker/scss-syntax.vim'
+  Bundle 'tpope/vim-haml'
+  Bundle 'rodjek/vim-puppet'
+  Bundle 'joonty/vdebug'
+  Bundle 'jtratner/vim-flavored-markdown'
+  Bundle 'slim-template/vim-slim'
+  Bundle 'StanAngeloff/php.vim'
+  Bundle 'exu/pgsql.vim'
+  Bundle 'mustache/vim-mustache-handlebars'
+  " vim-scripts repos
+  Bundle 'L9'
+  Bundle 'smarty-syntax'
+  Bundle 'matchit.zip'
+  Bundle 'RDoc'
+  Bundle 'bundler'
+  Bundle 'nginx.vim'
+  Bundle 'haproxy'
 
-if s:hasVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
+  if s:hasVundle == 0
+      echo "Installing Bundles, please ignore key map error messages"
+      echo ""
+      :BundleInstall
+  endif
 endif
 
 "let php_sql_query = 1
