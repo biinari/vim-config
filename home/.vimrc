@@ -85,6 +85,7 @@ if !exists('s:includedVundle')
   Bundle 'mustache/vim-mustache-handlebars'
   Bundle 'scrooloose/syntastic'
   Bundle 'elzr/vim-json'
+  Bundle 'evidens/vim-twig'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'smarty-syntax'
