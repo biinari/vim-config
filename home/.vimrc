@@ -107,9 +107,14 @@ endif
 let php_folding = 3
 let php_nested_functions = 1
 
+" php highlighting
 hi phpRelation guifg=DarkRed ctermfg=DarkRed
 hi phpSuperglobal guifg=SlateBlue ctermfg=DarkBlue
 hi String guifg=#cc33ee ctermfg=DarkMagenta
+
+" let go_highlight_array_whitespace_error = 0
+" let go_highlight_chan_whitespace_error = 0
+let go_highlight_trailing_whitespace_error = 0
 
 hi DiffText term=reverse cterm=bold ctermbg=0 gui=bold guibg=Red guifg=Black ctermfg=White
 
@@ -119,9 +124,9 @@ let Grep_Skip_Dirs='.svn'
 let Grep_Skip_Files='*.bak *~ *.swp'
 
 "set title
-"set titlestring=%t	" Set Window title to reflect filename (was %F)
+"set titlestring=%t " Set Window title to reflect filename (was %F)
 
-filetype plugin indent on   " required by Vundle
+filetype plugin indent on " required by Vundle
 
 " Tags
 map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="vendor" --exclude="blog" .<CR>
