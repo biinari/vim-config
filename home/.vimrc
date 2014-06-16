@@ -84,6 +84,7 @@ if !exists('s:includedVundle')
   Bundle 'exu/pgsql.vim'
   Bundle 'mustache/vim-mustache-handlebars'
   Bundle 'scrooloose/syntastic'
+  Bundle 'elzr/vim-json'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'smarty-syntax'
@@ -111,6 +112,8 @@ hi String guifg=#cc33ee ctermfg=DarkMagenta
 
 hi DiffText term=reverse cterm=bold ctermbg=0 gui=bold guibg=Red guifg=Black ctermfg=White
 
+hi link jsonKeyword Identifier
+
 let Grep_Skip_Dirs='.svn'
 let Grep_Skip_Files='*.bak *~ *.swp'
 
@@ -121,6 +124,9 @@ filetype plugin indent on   " required by Vundle
 
 " Tags
 map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="vendor" --exclude="blog" .<CR>
+
+" JSON
+let g:vim_json_syntax_conceal = 0
 
 " Syntastic lint and style checkers
 let g:syntastic_always_populate_loc_list = 1

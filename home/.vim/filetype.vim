@@ -26,4 +26,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile haproxy.cfg setfiletype haproxy
   au! BufRead,BufNewFile *.{mustache,handlebars,hbs,hogan,hulk,hjs}{,.erb} set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
   au! BufRead,BufNewFile /etc/systemd/system/*/*.conf setfiletype systemd
+  au! BufRead,BufNewFile *.json,*.jsonp setfiletype json
 augroup END
