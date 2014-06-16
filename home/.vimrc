@@ -83,6 +83,7 @@ if !exists('s:includedVundle')
   Bundle 'StanAngeloff/php.vim'
   Bundle 'exu/pgsql.vim'
   Bundle 'mustache/vim-mustache-handlebars'
+  Bundle 'scrooloose/syntastic'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'smarty-syntax'
@@ -120,3 +121,48 @@ filetype plugin indent on   " required by Vundle
 
 " Tags
 map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="vendor" --exclude="blog" .<CR>
+
+" Syntastic lint and style checkers
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_mode_map = {
+      \ 'mode': 'passive',
+      \ 'active_filetypes': ['ruby', 'javascript', 'php', 'css', 'scss', 'sass', 'xml', 'python', 'yaml', 'json', 'twig'] }
+
+let g:syntastic_ruby_mri_quiet_messages = {
+  \ 'regex': 'assigned but unused variable' }
+let g:syntastic_ruby_rubocop_quiet_messages = {
+      \ 'regex': 'Line is too long.',
+      \ 'file': ['\m^Gemfile$', '\m^Guardfile$'] }
+let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/rubocop'
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+let g:syntastic_javascript_checkers = ['jsl']
+let g:syntastic_javascript_jsl_conf = '/etc/jsl.conf'
+
+let g:syntastic_php_phpcs_args='--standard=/home/bill/code/phpcs/BiinariStandard -s --tab-width=' . &tabstop
+let g:syntastic_php_phpcs_quiet_messages = {
+      \ 'regex': [
+        \ 'Language constructs must be followed by a single space; expected \\"\(require\|include\)\(_once\)\?',
+        \ '\\"\(require\|include\)\(_once\)\?\\" is a statement not a function',
+        \ 'This comment is \d*% valid code'] }
+
+let g:syntastic_python_pylint_args='--rcfile=/home/bill/.pylintrc'
+
+let g:syntastic_css_csslint_args='--ignore=important,overqualified-elements,qualified-headings,unique-headings'
+
+let g:syntastic_scss_checkers = [ 'sass', 'scss_lint' ]
+let g:syntastic_scss_scss_lint_quiet_messages = {
+      \ 'regex': [
+        \ 'Name of function `emCalc` should be written in lowercase with hyphens instead of underscores'] }
+
+let g:syntastic_c_include_dirs = [ 'includes', 'headers', '/usr/include/xorg', '/usr/include/pixman-1' ]
+let g:syntastic_c_checkers = [ 'gcc', 'cppcheck' ]
+
+let g:syntastic_html_checkers = [ 'w3' ]
+
+nmap <C-s> :SyntasticCheck<CR>
+nmap <M-s> :SyntasticReset<CR>
+nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
+  \ "> trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
