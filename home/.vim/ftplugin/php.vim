@@ -10,9 +10,8 @@ function! Whitespace() range
 	execute a:firstline . ',' . a:lastline . 's/^\(\s*class.*\S\){\s*$/\1 {/ce'
 	execute a:firstline . ',' . a:lastline . 's/^ }/}/ce'
 	execute a:firstline . ',' . a:lastline . 's/\<\(function\|while\|for\|foreach\|if\|do\|switch\)(/\1 (/gce'
-	execute a:firstline . ',' . a:lastline . 's/}\(else\){/} \1 {/gce'
+	execute a:firstline . ',' . a:lastline . 's/}\(else\)\s*{/} \1 {/gce'
 	execute a:firstline . ',' . a:lastline . 's/\()\|else\){/\1 {/gce'
-	execute a:firstline . ',' . a:lastline . 's/}\(else\)/} \1/gce'
 	execute a:firstline . ',' . a:lastline . 's/,\c\(null\|false\|true\|\w*[:(]\)\?\a\@!\S\@=/, \1/gce'
 	execute a:firstline . ',' . a:lastline . 's/\s\+\([;,]\)/\1/gce'
 	execute a:firstline . ',' . a:lastline . 's/=<<</= <<</gce'
@@ -44,6 +43,31 @@ function! Multibyte() range
 	execute a:firstline . ',' . a:lastline . 's/\(mb_\)\@<!\(split\|strcut\|strr\?i\?pos\|stri\?str\|strlen\|strtolower\|strtoupper\|substr\|substr_count\)/mb_\2/gce'
 endfunction
 command! -nargs=0 -complete=command -range Multibyte <line1>,<line2>call Multibyte()
+
+function! FixStyle() range
+  execute a:firstline . ',' . a:lastline . 'retab'
+  execute a:firstline . ',' . a:lastline . 's///e'
+  execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
+  execute a:firstline . ',' . a:lastline . 's/\s\@<=--\s\@=/-/ce'
+  execute a:firstline . ',' . a:lastline . 's/<?php\s\+echo \([^;]\{-}\);\?\s*?>/<?= \1 ?>/gce'
+  execute a:firstline . ',' . a:lastline . 's/<?php\s\+echo\s*(\([^;]\{-}\));\?\s*?>/<?= \1 ?>/gce'
+  execute a:firstline . ',' . a:lastline . 's/echo(\(.*\))\s*;\s*$/echo \1;$/e'
+  execute a:firstline . ',' . a:lastline . 's/,\(\(\s\|\n\)*)\)\@=//gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<==>\S\@=/ => /gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<==>/ =>/gce'
+  execute a:firstline . ',' . a:lastline . 's/=>\S\@=/=> /gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<= )/)/gce'
+  execute a:firstline . ',' . a:lastline . 's/( /(/gce'
+  execute a:firstline . ',' . a:lastline . 's/,\S\@=/, /gce'
+  execute a:firstline . ',' . a:lastline . 's/\(if\|for\|foreach\|while\)\@<=(/ (/gce'
+  execute a:firstline . ',' . a:lastline . 's/){/) {/gce'
+  execute a:firstline . ',' . a:lastline . 's/}else\s*{/} else {/gce'
+  execute a:firstline . ',' . a:lastline . 's/else{/else {/gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<=?>/ ?>/gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<=  / /gce'
+  execute a:firstline . ',' . a:lastline . 's/\<\(False\|FALSE\|True\|TRUE\|Null\|NULL\)\>/\L\1\E/gce'
+endfunction
+command! -nargs=0 -complete=command -range FixStyle <line1>,<line2>call FixStyle()
 
 set foldlevel=1
 
