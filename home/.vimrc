@@ -161,17 +161,21 @@ let g:syntastic_php_phpcs_quiet_messages = {
 
 let g:syntastic_python_pylint_args='--rcfile=/home/bill/.pylintrc'
 
-let g:syntastic_css_csslint_args='--ignore=important,overqualified-elements,qualified-headings,unique-headings'
+let g:syntastic_css_csslint_args='--ignore=adjoining-classes,important,overqualified-elements,compatible-vendor-prefixes,ids,qualified-headings,unique-headings'
 
-let g:syntastic_scss_checkers = [ 'sass', 'scss_lint' ]
+let g:syntastic_scss_checkers = ['sass', 'scss_lint']
 let g:syntastic_scss_scss_lint_quiet_messages = {
       \ 'regex': [
         \ 'Name of function `emCalc` should be written in lowercase with hyphens instead of underscores'] }
 
-let g:syntastic_c_include_dirs = [ 'includes', 'headers', '/usr/include/xorg', '/usr/include/pixman-1' ]
-let g:syntastic_c_checkers = [ 'gcc', 'cppcheck' ]
+let g:syntastic_c_include_dirs = ['includes', 'headers', '/usr/include/xorg', '/usr/include/pixman-1']
+let g:syntastic_c_checkers = ['gcc', 'cppcheck']
 
-let g:syntastic_html_checkers = [ 'w3' ]
+let g:syntastic_html_checkers = ['w3']
+
+let g:syntastic_yaml_jsyaml_quiet_messages = {
+      \ 'regex': [
+        \ 'unknown tag !<!ruby/object:'] }
 
 nmap <C-s> :SyntasticCheck<CR>
 nmap <M-s> :SyntasticReset<CR>
