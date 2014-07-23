@@ -27,7 +27,7 @@ function! Whitespace() range
   \   '\|' . '-\@<!' .        '-' .       '[->]\@!' .
   \   '\|' . '\/\@<!' .       '\*' .      '\/\@!' .
   \   '\|' . '[\/<]\@<!' .    '\/' .      '[\/>]\@!' .
-  \  '\|' . '[0-9.]\@<!' .   '\.' .      '[0-9.]\@!' .
+  \   '\|' . '[0-9.]\@<!' .   '\.' .      '[0-9.]\@!' .
   \   '\|' . '\.=' .
   \   '\)'
   execute a:firstline . ',' . a:lastline .
@@ -52,20 +52,27 @@ function! FixStyle() range
   execute a:firstline . ',' . a:lastline . 's/<?php\s\+echo \([^;]\{-}\);\?\s*?>/<?= \1 ?>/gce'
   execute a:firstline . ',' . a:lastline . 's/<?php\s\+echo\s*(\([^;]\{-}\));\?\s*?>/<?= \1 ?>/gce'
   execute a:firstline . ',' . a:lastline . 's/echo(\(.*\))\s*;\s*$/echo \1;/e'
-  execute a:firstline . ',' . a:lastline . 's/,\(\(\s\|\n\)*)\)\@=//gce'
+  execute a:firstline . ',' . a:lastline . 's/,\(\_s*)\)\@=//gce'
   execute a:firstline . ',' . a:lastline . 's/\S\@<==>\S\@=/ => /gce'
   execute a:firstline . ',' . a:lastline . 's/\S\@<==>/ =>/gce'
   execute a:firstline . ',' . a:lastline . 's/=>\S\@=/=> /gce'
-  execute a:firstline . ',' . a:lastline . 's/\S\@<= )/)/gce'
-  execute a:firstline . ',' . a:lastline . 's/( /(/gce'
+  execute a:firstline . ',' . a:lastline . 's/\([(\[!]\) /\1/gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<= \([\])]\)/\1/gce'
   execute a:firstline . ',' . a:lastline . 's/,\S\@=/, /gce'
   execute a:firstline . ',' . a:lastline . 's/\(if\|for\|foreach\|while\)\@<=(/ (/gce'
   execute a:firstline . ',' . a:lastline . 's/){/) {/gce'
   execute a:firstline . ',' . a:lastline . 's/}else\s*{/} else {/gce'
   execute a:firstline . ',' . a:lastline . 's/else{/else {/gce'
   execute a:firstline . ',' . a:lastline . 's/\S\@<=?>/ ?>/gce'
-  execute a:firstline . ',' . a:lastline . 's/\S\@<=  / /gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<=  \+/ /gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<=\([!=]==\?\)\S\@=/ \1 /gce'
   execute a:firstline . ',' . a:lastline . 's/\<\(False\|FALSE\|True\|TRUE\|Null\|NULL\)\>/\L\1\E/gce'
+
+  " Multiline replace breaks future lastline references so set s:lastline
+  let s:numlines = line('$')
+  execute a:firstline . ',' . a:lastline . 's/echo\_s*(\_s*\(\_.\{-}\)\_s*)\_s*;/echo \1;/gce'
+  let s:lastline = a:lastline - (s:numlines - line('$'))
+  let s:numlines = line('$')
 endfunction
 command! -nargs=0 -complete=command -range FixStyle <line1>,<line2>call FixStyle()
 
