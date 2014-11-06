@@ -13,6 +13,10 @@ set fo-=j " Remove a comment leader when joining lines
 "set nosmartindent
 "inoremap # X#
 
+" Line break on words with a highlighted marker
+"let &showbreak = '| '
+"set lbr
+
 autocmd BufEnter *.py setl et ts=4 sw=4
 "autocmd BufEnter *.py inoremap # X#
 autocmd BufEnter *.rb,Capfile,capfile,Guardfile,Rakefile,*.thor,Vagrantfile setl et ts=2 sw=2
