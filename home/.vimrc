@@ -178,7 +178,7 @@ let g:syntastic_html_checkers = ['w3']
 
 let g:syntastic_yaml_jsyaml_quiet_messages = {
       \ 'regex': [
-        \ 'unknown tag !<!ruby/object:'] }
+        \ 'unknown tag !<!ruby/\(object:\(\w\|:\)*\|regexp\)>'] }
 
 nmap <C-s> :SyntasticCheck<CR>
 nmap <M-s> :SyntasticReset<CR>
