@@ -70,8 +70,10 @@ if !exists('s:includedVundle')
   " original repos on github
   Bundle 'tpope/vim-fugitive'
   Bundle 'vim-ruby/vim-ruby'
+  Bundle 'tpope/vim-bundler'
   Bundle 'tpope/vim-rails.git'
   Bundle 'tpope/vim-rake.git'
+  Bundle 'tpope/vim-projectionist.git'
   Bundle 'othree/html5.vim'
   Bundle 'kchmck/vim-coffee-script'
   Bundle 'cakebaker/scss-syntax.vim'
@@ -91,7 +93,6 @@ if !exists('s:includedVundle')
   Bundle 'smarty-syntax'
   Bundle 'matchit.zip'
   Bundle 'RDoc'
-  Bundle 'bundler'
   Bundle 'nginx.vim'
   Bundle 'haproxy'
 
