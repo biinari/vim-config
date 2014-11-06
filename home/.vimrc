@@ -149,8 +149,10 @@ let g:syntastic_ruby_rubocop_quiet_messages = {
 let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/rubocop'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
-let g:syntastic_javascript_checkers = ['jsl']
-let g:syntastic_javascript_jsl_conf = '/etc/jsl.conf'
+"let g:syntastic_javascript_checkers = ['jsl']
+"let g:syntastic_javascript_jsl_args = '-conf /etc/jsl.conf'
+
+let g:syntastic_javascript_checkers = ['jshint']
 
 let g:syntastic_php_phpcs_args='--standard=/home/bill/code/phpcs/BiinariStandard -s --tab-width=' . &tabstop
 let g:syntastic_php_phpcs_quiet_messages = {
