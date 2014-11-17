@@ -148,9 +148,6 @@ let g:syntastic_mode_map = {
 
 let g:syntastic_ruby_mri_quiet_messages = {
   \ 'regex': 'assigned but unused variable' }
-let g:syntastic_ruby_rubocop_quiet_messages = {
-      \ 'regex': 'Line is too long.',
-      \ 'file': ['\m^Gemfile$', '\m^Guardfile$'] }
 let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/rubocop'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
