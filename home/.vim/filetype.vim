@@ -28,4 +28,8 @@ augroup filetypedetect
   au! BufRead,BufNewFile /etc/systemd/system/*/*.conf setfiletype systemd
   au! BufRead,BufNewFile *.json,*.jsonp setfiletype json
   au! BufRead,BufNewFile /etc/php/php-fpm.conf,/etc/php/fpm.d/* setfiletype dosini
+  au! BufRead,BufNewFile *.bats setfiletype sh
+  au! BufRead,BufNewFile Gemfile.local setfiletype ruby
+  au! BufRead,BufNewFile monitrc,monit/conf.d/*.conf setfiletype monitrc
+  au! BufRead,BufNewFile *.scala setfiletype scala
 augroup END

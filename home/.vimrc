@@ -92,6 +92,8 @@ if !exists('s:includedVundle')
   Bundle 'scrooloose/syntastic'
   Bundle 'elzr/vim-json'
   Bundle 'evidens/vim-twig'
+  Bundle 'tmatilai/vim-monit'
+  Bundle 'derekwyatt/vim-scala'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'smarty-syntax'
