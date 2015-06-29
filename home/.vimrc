@@ -149,8 +149,8 @@ let g:syntastic_mode_map = {
       \ 'mode': 'passive',
       \ 'active_filetypes': ['ruby', 'javascript', 'php', 'css', 'scss', 'sass', 'xml', 'python', 'yaml', 'json', 'sh', 'twig'] }
 
-let g:syntastic_ruby_mri_quiet_messages = {
-  \ 'regex': 'assigned but unused variable' }
+"let g:syntastic_ruby_mri_quiet_messages = {
+"  \ 'regex': 'assigned but unused variable' }
 let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/rubocop'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
