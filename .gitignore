@@ -1,3 +1,4 @@
 .netrwhist
 # Vundle
 home/.vim/bundle/
+home/.vim/spell/*
