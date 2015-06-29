@@ -159,7 +159,14 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
-let g:syntastic_php_phpcs_args='--standard=/home/bill/code/phpcs/BiinariStandard -s --tab-width=' . &tabstop
+" Set tab-width for PHP_CodeSniffer based on current tabstop - not just at
+" time of sourcing vimrc
+function! SetPHPCSArgs()
+  let g:syntastic_php_phpcs_args='--tab-width=' . &tabstop
+  " To set indent open /usr/share/pear/PHP/CodeSniffer/Standards/Generic/Sniffs/WhiteSpace/ScopeIndentSniff.php and alter $indent (default 4)
+endfunction
+call SetPHPCSArgs()
+
 let g:syntastic_php_phpcs_quiet_messages = {
       \ 'regex': [
         \ 'Language constructs must be followed by a single space; expected \\"\(require\|include\)\(_once\)\?',
@@ -184,8 +191,10 @@ let g:syntastic_yaml_jsyaml_quiet_messages = {
       \ 'regex': [
         \ 'unknown tag !<!ruby/\(object:\(\w\|:\)*\|regexp\)>'] }
 
-nmap <C-s> :SyntasticCheck<CR>
+nmap <C-s> :call SetPHPCSArgs()<CR> :SyntasticCheck<CR>
 nmap <M-s> :SyntasticReset<CR>
 nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
   \ "> trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+au! BufWrite *.php,*.inc call SetPHPCSArgs()
