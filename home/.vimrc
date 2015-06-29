@@ -27,7 +27,8 @@ autocmd BufEnter *.sass setl et ts=2 sw=2
 autocmd BufEnter *.html setl et ts=2 sw=2
 autocmd BufEnter *.tpl setl et ts=2 sw=2
 autocmd BufEnter *.erb setl et ts=2 sw=2
-autocmd BufEnter *.php setl ts=4 sw=4 indentexpr= indentkeys= ai si
+autocmd BufEnter *.php,*.inc setl ts=4 sw=4 indentexpr= indentkeys= ai si
+autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
 
 set nocompatible " be iMproved
 filetype off     " required by Vundle
