@@ -157,7 +157,7 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 "let g:syntastic_javascript_checkers = ['jsl']
 "let g:syntastic_javascript_jsl_args = '-conf /etc/jsl.conf'
 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
 let g:syntastic_php_phpcs_args='--standard=/home/bill/code/phpcs/BiinariStandard -s --tab-width=' . &tabstop
 let g:syntastic_php_phpcs_quiet_messages = {
