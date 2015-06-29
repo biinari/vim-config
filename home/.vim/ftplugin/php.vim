@@ -59,7 +59,7 @@ function! FixStyle() range
   execute a:firstline . ',' . a:lastline . 's/\([(\[!]\) /\1/gce'
   execute a:firstline . ',' . a:lastline . 's/\S\@<= \([\])]\)/\1/gce'
   execute a:firstline . ',' . a:lastline . 's/,\S\@=/, /gce'
-  execute a:firstline . ',' . a:lastline . 's/\(if\|for\|foreach\|while\)\@<=(/ (/gce'
+  execute a:firstline . ',' . a:lastline . 's/\<\(if\|elseif\|for\|foreach\|while\)\@<=(/ (/gce'
   execute a:firstline . ',' . a:lastline . 's/){/) {/gce'
   execute a:firstline . ',' . a:lastline . 's/}else\s*{/} else {/gce'
   execute a:firstline . ',' . a:lastline . 's/else{/else {/gce'
