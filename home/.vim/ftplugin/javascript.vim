@@ -49,3 +49,20 @@ function! Equivalent() range
   execute a:firstline . ',' . a:lastline . 's/[!=]\@<!\([!=]=\)=\@!/\1=/gce'
 endfunction
 command! -nargs=0 -complete=command -range Equivalent <line1>,<line2>call Equivalent()
+
+function! Blocks() range
+  " May change newlines
+  let l:lastline = a:lastline
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/^\(\s*\)\(\%(if\|\%(}\s*\)\?else\s\+if\|for\|while\|do\|switch\|\%(}\s*\)\?catch\)\s*(.*)\)\s\+\([^{ ].*;$\)/\1\2 {\r\1  \3\r\1}/gce'
+  let l:lastline += line('$') - l:filelines
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/^\(\s*\)\(\%(}\s*\)\?else\)\s\+\([^{ ].*;$\)/\1\2 {\r\1  \3\r\1}/gce'
+  let l:lastline += line('$') - l:filelines
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/^\(\s*\)\(\%(if\|\%(}\s*\)\?else\s\+if\|for\|while\|do\|switch\|\%(}\s*\)\?catch\)\s*(.*)\)\s\{-}\( \/\/.*\)\?\n\(\%(\s\|\n\)*[^{ ]\S\_.\{-};\%(\s*\/\/.*\)\?$\)/\1\2 {\3\r\4\r\1}/gce'
+  let l:lastline += line('$') - l:filelines
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/^\(\s*\)\(\%(}\s*\)\?else\)\s\{-}\( \/\/.*\)\?\n\(\%(\s\|\n\)*[^{ ]\S\_.\{-};\%(\s*\/\/.*\)\?$\)/\1\2 {\3\r\4\r\1}/gce'
+endfunction
+command! -nargs=0 -complete=command -range Blocks <line1>,<line2>call Blocks()
