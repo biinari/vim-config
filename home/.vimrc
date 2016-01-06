@@ -7,6 +7,7 @@ set autoindent
 set expandtab
 set smarttab
 set scrolloff=4
+set scrollopt="ver,hor,jump"
 set fo-=r " Do not automatically insert a comment leader after an enter
 set fo-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
 set fo-=j " Remove a comment leader when joining lines
