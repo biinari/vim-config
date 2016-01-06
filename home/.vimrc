@@ -30,6 +30,7 @@ autocmd BufEnter *.erb setl et ts=2 sw=2
 autocmd BufEnter *.php,*.inc setl ts=4 sw=4 indentexpr= indentkeys= ai si
 autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
 autocmd BufEnter *.md setl et ts=4 sw=4
+autocmd BufEnter PKGBUILD let g:syntastic_sh_checkers = ['sh']
 
 set nocompatible " be iMproved
 filetype off     " required by Vundle
