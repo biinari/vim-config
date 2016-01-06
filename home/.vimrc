@@ -160,7 +160,7 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 "let g:syntastic_javascript_checkers = ['jsl']
 "let g:syntastic_javascript_jsl_args = '-conf /etc/jsl.conf'
 
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 
 " Set tab-width for PHP_CodeSniffer based on current tabstop - not just at
 " time of sourcing vimrc
