@@ -201,3 +201,5 @@ nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 au! BufWrite *.php,*.inc call SetPHPCSArgs()
+
+let g:vdebug_options = { 'continuous_mode': 1 }
