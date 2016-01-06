@@ -24,6 +24,7 @@ function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/}\(else\|catch\)/} \1/gce'
   execute a:firstline . ',' . a:lastline . 's/(\s\+/(/gce'
   execute a:firstline . ',' . a:lastline . 's/\S\@<=\s\+)/)/gce'
+  execute a:firstline . ',' . a:lastline . 's/\S\@<=\s\+,/,/gce'
   execute a:firstline . ',' . a:lastline . 's/,\S\@=/, /gce'
   " Space around operators = == === != !== += -= < <= > >= + - * / || &&
   " Ignores =\ // /* */ ++ -- </ /> >< <> \"< '< >\" >'
