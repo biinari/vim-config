@@ -17,7 +17,8 @@ command! -nargs=0 -complete=command JSLint call JSLint()
 
 function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/\s\+$//ce'
-  execute a:firstline . ',' . a:lastline . 's/\<\(function\|while\|for\|if\|do\|switch\|catch\)(/\1 (/gce'
+  " execute a:firstline . ',' . a:lastline . 's/\<\(function\)(/\1 (/gce'
+  execute a:firstline . ',' . a:lastline . 's/\<\(while\|for\|if\|do\|switch\|catch\)(/\1 (/gce'
   execute a:firstline . ',' . a:lastline . 's/}\(else\){/} \1 {/gce'
   execute a:firstline . ',' . a:lastline . 's/\()\|else\|try\){/\1 {/gce'
   execute a:firstline . ',' . a:lastline . 's/}\(else\|catch\)/} \1/gce'
