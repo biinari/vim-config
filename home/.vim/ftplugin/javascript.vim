@@ -27,6 +27,7 @@ function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/\S\@<=\s\+,/,/gce'
   execute a:firstline . ',' . a:lastline . 's/\\\@<!{[^{}/ ]\@=\([0-9,]*}\)\@!/{ /gce'
   execute a:firstline . ',' . a:lastline . 's/\%([^{}/ \\]\)\@<=\%({[0-9,]*\)\@<!}/ }/gce'
+  execute a:firstline . ',' . a:lastline . 's/[a-zA-Z0-9_''"]\@<=:[a-zA-Z0-9_$({\[''"-]\@=/: /gce'
   execute a:firstline . ',' . a:lastline . 's/,\S\@=/, /gce'
   " Space around operators = == === != !== += -= < <= > >= + - * / || &&
   " Ignores =\ // /* */ ++ -- </ /> >< <> \"< '< >\" >'
