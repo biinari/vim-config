@@ -32,4 +32,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile Gemfile.local setfiletype ruby
   au! BufRead,BufNewFile monitrc,monit/conf.d/*.conf setfiletype monitrc
   au! BufRead,BufNewFile *.scala setfiletype scala
+  au! BufRead,BufNewFile *.vcl setfiletype vcl
 augroup END
