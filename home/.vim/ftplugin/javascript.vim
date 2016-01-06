@@ -66,3 +66,11 @@ function! Blocks() range
   execute a:firstline . ',' . l:lastline . 's/^\(\s*\)\(\%(}\s*\)\?else\)\s\{-}\( \/\/.*\)\?\n\(\%(\s\|\n\)*[^{ ]\S\_.\{-};\%(\s*\/\/.*\)\?$\)/\1\2 {\3\r\4\r\1}/gce'
 endfunction
 command! -nargs=0 -complete=command -range Blocks <line1>,<line2>call Blocks()
+
+function! Retab4to2() range
+  set ts=4 sw=4 noet
+  execute a:firstline . ',' . a:lastline . 'retab!'
+  set ts=2 sw=2 et
+  execute a:firstline . ',' . a:lastline . 'retab!'
+endfunction
+command! -nargs=0 -complete=command -range Retab4to2 <line1>,<line2>call Retab4to2()
