@@ -33,4 +33,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile monitrc,monit/conf.d/*.conf setfiletype monitrc
   au! BufRead,BufNewFile *.scala setfiletype scala
   au! BufRead,BufNewFile *.vcl setfiletype vcl
+  au! BufRead,BufNewFile rabbitmq.config setfiletype erlang
 augroup END
