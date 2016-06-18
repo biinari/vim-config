@@ -29,27 +29,45 @@ function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/\%([^{}/ \\]\)\@<=\%({[0-9,]*\)\@<!}/ }/gce'
   execute a:firstline . ',' . a:lastline . 's/[a-zA-Z0-9_''"]\@<=:[a-zA-Z0-9_$({\[''"-]\@=/: /gce'
   execute a:firstline . ',' . a:lastline . 's/,\S\@=/, /gce'
-  " Space around operators = == === != !== += -= < <= > >= + - * / || &&
-  " Ignores =\ // /* */ ++ -- </ /> >< <> \"< '< >\" >'
+  " Space around operators:
+  " = == === != !== += -= < <= > >= << <<< >> >>> + - * / || &&
+  " Ignores operators:
+  " =\ // /* */ ++ -- </ /> >< <> \"< '< >\" >'
   let l:pattern = '\(' .
-  \	'!=\+' .
-  \	'\|' .					'=\+' .		'\\\@!' .
-  \	'\|' . '[''">]\@<!' .	'<=*' .		'[>\/]\@!' .
-  \	'\|' . '[<\/]\@<!' .	'>=*' .		'[''"<]\@!' .
-  \	'\|' .					'[+-]=' .
-  \	'\|' . '+\@<!' .		'+' .		'+\@!' .
-  \	'\|' . '-\@<!' .		'-' .		'-\@!' .
-  \	'\|' . '\/\@<!' .		'\*' .		'\/\@!' .
-  \	'\|' . '[\/<]\@<!' .	'\/' .		'[\/>]\@!' .
-  \	'\|' .					'||' .
-  \	'\|' .					'&&' .
-  \	'\)'
+  \                                            '!=\+'.
+  \ '\|'.'[!<]\@<!'.                           '=\+'.     '\\\@!' .
+  \ '\|'.'[''">]\@<!'.                         '<[<=]*'.  '\%([>\/]\|[a-zA-Z0-9_.@-]\+\%( \?\/\)\?>\)\@!' .
+  \ '\|'.'\%([<\/]\|<\/\?[a-zA-Z0-9_.@-]\+\)\@<!'. '>[>=]*'.  '[''"<]\@!' .
+  \ '\|'.                                      '[+-/*]='.
+  \ '\|'.'+\@<!'.                              '+'.       '+\@!' .
+  \ '\|'.'\(-\|[<>=?:,]\s*\)\@<!'.             '-'.       '-\@!' .
+  \ '\|'.'\/\@<!'.                             '\*'.      '\/\@!' .
+  \ '\|'.'[\/<]\@<!'.                          '\/'.      '[\/>]\@!' .
+  \ '\|'.                                      '||'.
+  \ '\|'.                                      '&&'.
+  \ '\)'
   execute a:firstline . ',' . a:lastline .
-  \	's/\([)"''\]}]\|\w\)\@<=' . l:pattern . '/ \2/gce'
+  \   's/\%([)"''\]}]\|\w\)\@<=' . l:pattern . '\([("''{\[\/$]\|\w\)\@=/ \1 /gce'
   execute a:firstline . ',' . a:lastline .
-  \	's/' .  l:pattern . '\([("''{\[\/]\|\w\)\@=/\1 /gce'
-  " Execute this last as it can remove newlines
-  execute a:firstline . ',' . a:lastline . 's/}\s*\n\s*\(else\|catch\)/} \1/gce'
+  \   's/\%([)"''\]}]\|\w\)\@<=\(' . l:pattern . '\|-\@<!--\@!\)/ \1/gce'
+  execute a:firstline . ',' . a:lastline .
+  \   's/' .  l:pattern . '\%([("''{\[\/$]\|\w\)\@=/\1 /gce'
+  execute a:firstline . ',' . a:lastline .
+  \   's/\%([<>=?:,]\)\@<=\(-\)/ \1/gce'
+
+  " Execute these last as they can remove newlines
+  let l:lastline = a:lastline
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/\(\<\%(function\s*\w\+\|\w\+\s*[:=]\s*function\|while\|for\|if\|do\|switch\|catch\)\s*(.*)\)\s\{-}\( \/\/.*\)\?\n\s*{/\1 {\2/gce'
+  let l:lastline -= l:filelines - line('$')
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/}\s*\n\s*\(else\|catch\)/} \1/gce'
+  let l:lastline -= l:filelines - line('$')
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/\(else\)\s*\n\s*{/\1 {/gce'
+  let l:lastline -= l:filelines - line('$')
+  let l:filelines = line('$')
+  execute a:firstline . ',' . l:lastline . 's//\r/gce'
 endfunction
 command! -nargs=0 -complete=command -range Whitespace <line1>,<line2>call Whitespace()
 
