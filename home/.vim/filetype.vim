@@ -34,4 +34,6 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.scala setfiletype scala
   au! BufRead,BufNewFile *.vcl setfiletype vcl
   au! BufRead,BufNewFile rabbitmq.config setfiletype erlang
+  au! BufRead,BufNewFile *.ex,*.exs setfiletype elixir
+  au! BufRead,BufNewFile *.eex setfiletype elixir
 augroup END
