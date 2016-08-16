@@ -100,6 +100,7 @@ if !exists('s:includedVundle')
   Bundle 'derekwyatt/vim-scala'
   Bundle 'smerrill/vcl-vim-plugin'
   Bundle 'elixir-lang/vim-elixir'
+  Bundle 'hashivim/vim-terraform'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'smarty-syntax'
