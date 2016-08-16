@@ -48,7 +48,7 @@ set suffixes+=.hi
 "set guioptions-=T " disable the toolbar
 set guioptions=aei " Autoselect, tab pages, vim icon.
 let g:tex_flavor="latex"
-set guifont=Monospace\ 9
+set guifont=Monospace\ 8
 
 syntax on
 set background=dark
