@@ -133,6 +133,7 @@ if !exists('s:includedVundle')
   Bundle 'elixir-lang/vim-elixir'
   Bundle 'hashivim/vim-terraform'
   Bundle 'fatih/vim-go'
+  Bundle 'ajorgensen/vim-markdown-toc'
 
   " vim-scripts repos
   Bundle 'L9'
