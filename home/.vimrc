@@ -84,7 +84,6 @@ syntax on
 colorscheme koehler
 " dark:  candycode fruity koehler motus tango torte
 " light: sienna tolerable
-hi comment guifg=blue ctermfg=blue
 
 set runtimepath+=/usr/share/lilypond/2.12.2/vim/
 
