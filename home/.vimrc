@@ -51,6 +51,8 @@ augroup vimrc
   " SC2016 expressions in single quotes in sed patterns
   autocmd BufEnter PKGBUILD let g:syntastic_sh_shellcheck_args = "-s bash -e SC2034,SC2154,SC2164,SC2016"
   autocmd BufEnter *.install let g:syntastic_sh_shellcheck_args = "-s bash -e SC2154"
+
+  autocmd BufWritePost *.tf,*.tfvars silent !$GOBIN/terraform fmt %
 augroup END
 
 set nocompatible " be iMproved
