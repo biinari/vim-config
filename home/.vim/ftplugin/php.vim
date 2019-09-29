@@ -31,9 +31,13 @@ function! Whitespace() range
   \   '\|' . '\%([0-9.]\|\%(^\|[^$a-zA-Z0-9_]\)\w\+\)\@<!' . '\.' .      '[0-9.]\@!' .
   \   '\)'
   execute a:firstline . ',' . a:lastline .
-  \   's/\([)"''\]}]\|\w\)\@<=' . l:pattern . '\(\w\+[:(]\|null\|false\|true\)\?\a\@!/ \2\3/gce'
+  \   's/\([)"''\]}]\|\w\)\@<=' .
+  \   l:pattern .
+  \   '\(\w\+[:(]\|null\|false\|true\)\?\a\@!/ \2\3/gce'
   execute a:firstline . ',' . a:lastline .
-  \   's/' . l:pattern . '\([("''{\[\/]\|\d\|_\|\w\+[:(]\|null\|false\|true\|\$\)\@=' . '/\1 /gce'
+  \   's/' .
+  \   l:pattern .
+  \   '\([("''{\[\/]\|\d\|_\|\w\+[:(]\|null\|false\|true\|\$\)\@=' . '/\1 /gce'
   " Execute this last as it can remove newlines
   execute a:firstline . ',' . a:lastline . 's/}\s*\n\s*\(else\|catch\)/} \1/gce'
 endfunction
