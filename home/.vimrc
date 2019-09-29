@@ -142,6 +142,7 @@ if !exists('s:includedVundle')
   Bundle 'RDoc'
   Bundle 'nginx.vim'
   Bundle 'haproxy'
+  Bundle 'Jinja'
 
   if s:hasVundle == 0
       echo "Installing Bundles, please ignore key map error messages"
