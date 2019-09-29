@@ -27,21 +27,23 @@ set dir=~/tmp//,/var/tmp//,/tmp//
 "let &showbreak = '| '
 "set lbr
 
-autocmd BufEnter *.py setl et ts=4 sw=4
-"autocmd BufEnter *.py inoremap # X#
-autocmd BufEnter *.rb,Capfile,capfile,Guardfile,Rakefile,*.thor,Vagrantfile setl et ts=2 sw=2
-autocmd BufEnter *.fdoc,*.fdoc.*,*.yml,*/.bundle/config setl et ts=2 sw=2 indentexpr= indentkeys=
-
-autocmd BufEnter *.coffee setl et ts=4 sw=4
-autocmd BufEnter *.sass setl et ts=2 sw=2
-autocmd BufEnter *.html setl et ts=2 sw=2
-autocmd BufEnter *.tpl setl et ts=2 sw=2
-autocmd BufEnter *.erb setl et ts=2 sw=2
-autocmd BufEnter *.php,*.inc setl ts=4 sw=4 indentexpr= indentkeys= ai si
-autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
-autocmd BufEnter *.md setl et ts=4 sw=4
-autocmd BufEnter *.go setl noet ts=4 sw=4
-autocmd BufEnter PKGBUILD let g:syntastic_sh_checkers = ['sh']
+augroup vimrc
+  autocmd BufEnter *.py setl et ts=4 sw=4
+  "autocmd BufEnter *.py inoremap # X#
+  autocmd BufEnter *.rb,Capfile,capfile,Guardfile,Rakefile,*.thor,Vagrantfile setl et ts=2 sw=2
+  autocmd BufEnter *.fdoc,*.fdoc.*,*.yml,*/.bundle/config setl et ts=2 sw=2 indentexpr= indentkeys=
+  
+  autocmd BufEnter *.coffee setl et ts=4 sw=4
+  autocmd BufEnter *.sass setl et ts=2 sw=2
+  autocmd BufEnter *.html setl et ts=2 sw=2
+  autocmd BufEnter *.tpl setl et ts=2 sw=2
+  autocmd BufEnter *.erb setl et ts=2 sw=2
+  autocmd BufEnter *.php,*.inc setl ts=4 sw=4 indentexpr= indentkeys= ai si
+  autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
+  autocmd BufEnter *.md setl et ts=4 sw=4
+  autocmd BufEnter *.go setl noet ts=4 sw=4
+  autocmd BufEnter PKGBUILD let g:syntastic_sh_checkers = ['sh']
+augroup END
 
 set nocompatible " be iMproved
 filetype off     " required by Vundle
