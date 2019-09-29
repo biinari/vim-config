@@ -41,4 +41,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile .terraformrc setfiletype terraform
   au! BufRead,BufNewFile _*.tf.sandbox.*,_*.tf.staging.*,_*.tf.preview.*,_*.tf.production.* setfiletype terraform
   au! BufRead,BufNewFile *.tfstate setfiletype javascript
+  au! BufRead,BufNewFile .env setfiletype conf
 augroup END
