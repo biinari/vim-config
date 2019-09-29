@@ -13,6 +13,8 @@ set fo-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
 set fo-=j " Remove a comment leader when joining lines
 "set nosmartindent
 "inoremap # X#
+set nohlsearch
+set noincsearch
 
 " Line break on words with a highlighted marker
 "let &showbreak = '| '
