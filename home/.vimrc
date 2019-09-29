@@ -73,7 +73,11 @@ set suffixes+=.hi
 "set guioptions-=T " disable the toolbar
 set guioptions=aei " Autoselect, tab pages, vim icon.
 let g:tex_flavor="latex"
-set guifont=Monospace\ 8
+if has('nvim')
+  set guifont=Monospace:h8
+else
+  set guifont=Monospace\ 8
+endif
 
 syntax on
 set background=dark
