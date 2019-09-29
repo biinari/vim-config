@@ -174,6 +174,10 @@ let Grep_Skip_Files='*.bak *~ *.swp'
 
 "set title
 "set titlestring=%t " Set Window title to reflect filename (was %F)
+if has('nvim')
+  "set titlestring=%f %m
+  set title
+endif
 
 filetype plugin indent on " required by Vundle
 
