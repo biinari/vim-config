@@ -68,6 +68,7 @@ function! FixStyle() range
   execute a:firstline . ',' . a:lastline . 's///e'
   execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
   execute a:firstline . ',' . a:lastline . 's/\s\@<=--\s\@=/-/ce'
+  execute a:firstline . ',' . a:lastline . 's/<?\(php\|=\)\@!/<?php/gce'
   execute a:firstline . ',' . a:lastline . 's/<?php\s\+echo \([^;]\{-}\);\?\s*?>/<?= \1 ?>/gce'
   execute a:firstline . ',' . a:lastline . 's/<?php\s\+echo\s*(\([^;]\{-}\));\?\s*?>/<?= \1 ?>/gce'
   execute a:firstline . ',' . a:lastline . 's/echo(\(.*\))\s*;\s*$/echo \1;/e'
