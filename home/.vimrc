@@ -16,6 +16,7 @@ set fo-=j " Remove a comment leader when joining lines
 set nohlsearch
 set noincsearch
 set formatoptions+=j
+set showcmd
 
 " Line break on words with a highlighted marker
 "let &showbreak = '| '
