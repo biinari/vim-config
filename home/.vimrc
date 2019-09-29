@@ -15,6 +15,7 @@ set fo-=j " Remove a comment leader when joining lines
 "inoremap # X#
 set nohlsearch
 set noincsearch
+set formatoptions+=j
 
 " Line break on words with a highlighted marker
 "let &showbreak = '| '
