@@ -20,6 +20,9 @@ set showcmd
 set sidescroll=8
 set laststatus=1
 
+" Put swap files in ~/tmp using whole path name (replacing / with %)
+set dir=~/tmp//,/var/tmp//,/tmp//
+
 " Line break on words with a highlighted marker
 "let &showbreak = '| '
 "set lbr
