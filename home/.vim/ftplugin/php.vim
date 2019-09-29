@@ -93,11 +93,12 @@ function! FixStyle() range
   execute a:firstline . ',' . a:lastline . 's/\S\@<=\([!=]==\?\)\S\@=/ \1 /gce'
   execute a:firstline . ',' . a:lastline . 's/\<\(False\|FALSE\|True\|TRUE\|Null\|NULL\)\>/\L\1\E/gce'
 
-  " Multiline replace breaks future lastline references so set s:lastline
-  let s:numlines = line('$')
-  execute a:firstline . ',' . a:lastline . 's/echo\_s*(\_s*\(\_.\{-}\)\_s*)\_s*;/echo \1;/gce'
-  let s:lastline = a:lastline - (s:numlines - line('$'))
-  let s:numlines = line('$')
+  " Multiline replace breaks future lastline references so set l:lastline
+  let l:lastline = a:lastline
+  let l:numlines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/echo\_s*(\_s*\(\_.\{-}\)\_s*)\_s*;/echo \1;/gce'
+  let l:lastline -= l:numlines - line('$')
+  let l:numlines = line('$')
 endfunction
 command! -nargs=0 -complete=command -range FixStyle <line1>,<line2>call FixStyle()
 
