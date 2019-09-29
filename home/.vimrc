@@ -78,9 +78,9 @@ if has('nvim')
 else
   set guifont=Monospace\ 8
 endif
+set background=dark
 
 syntax on
-set background=dark
 colorscheme default
 hi comment guifg=blue ctermfg=blue
 
