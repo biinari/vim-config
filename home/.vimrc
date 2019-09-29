@@ -18,6 +18,7 @@ set noincsearch
 set formatoptions+=j
 set showcmd
 set sidescroll=8
+set laststatus=1
 
 " Line break on words with a highlighted marker
 "let &showbreak = '| '
