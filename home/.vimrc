@@ -44,6 +44,7 @@ augroup vimrc
   autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
   autocmd BufEnter *.md setl et ts=4 sw=4
   autocmd BufEnter *.go setl noet ts=4 sw=4
+  autocmd BufWritePost *.go silent !go fmt %
   " PKGBUILD expect SC2034 unused variables
   " SC2154 unassigend variables (srcdir,pkgdir)
   " SC2164 cd to known good path
