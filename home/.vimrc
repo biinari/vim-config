@@ -44,7 +44,12 @@ augroup vimrc
   autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
   autocmd BufEnter *.md setl et ts=4 sw=4
   autocmd BufEnter *.go setl noet ts=4 sw=4
-  autocmd BufEnter PKGBUILD let g:syntastic_sh_checkers = ['sh']
+  " PKGBUILD expect SC2034 unused variables
+  " SC2154 unassigend variables (srcdir,pkgdir)
+  " SC2164 cd to known good path
+  " SC2016 expressions in single quotes in sed patterns
+  autocmd BufEnter PKGBUILD let g:syntastic_sh_shellcheck_args = "-s bash -e SC2034,SC2154,SC2164,SC2016"
+  autocmd BufEnter *.install let g:syntastic_sh_shellcheck_args = "-s bash -e SC2154"
 augroup END
 
 set nocompatible " be iMproved
