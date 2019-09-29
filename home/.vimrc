@@ -57,7 +57,9 @@ augroup END
 
 set nocompatible " be iMproved
 filetype off     " required by Vundle
-set history=50   " keep 50 lines of command history
+if !has('nvim')
+  set history=200
+endif
 set ruler        " Show the cursor position all the time
 set showmatch    " Show matching brackets
 
