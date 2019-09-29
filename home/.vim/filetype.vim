@@ -7,7 +7,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.ly,*.ily setfiletype lilypond
   au! BufRead,BufNewFile *.htc setfiletype javascript
   au! BufRead,BufNewFile */db/structure.sql setfiletype pgsql
-  au! BufRead,BufNewFile *.sql setfiletype mysql
+  au! BufRead,BufNewFile *.sql setfiletype pgsql
   au! BufRead,BufNewFile *.pkg,*.cls,*.proc	setfiletype docbk
   au! BufRead,BufNewFile *.pp setfiletype puppet
   au! BufRead,BufNewFile *.hsc setfiletype haskell
