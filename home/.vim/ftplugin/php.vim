@@ -31,9 +31,9 @@ function! Whitespace() range
   \   '\|' . '\%([0-9.]\|\%(^\|[^$a-zA-Z0-9_]\)\w\+\)\@<!' . '\.' .      '[0-9.]\@!' .
   \   '\)'
   execute a:firstline . ',' . a:lastline .
-  \   's/\([)"''\]}]\|\w\)\@<=' .
+  \   's/\%([)"''\]}]\|\w\)\@<=' .
   \   l:pattern .
-  \   '\(\w\+[:(]\|null\|false\|true\)\?\a\@!/ \2\3/gce'
+  \   '\(\w\+[:(]\|null\|false\|true\)\?\a\@!/ \1\2/gce'
   execute a:firstline . ',' . a:lastline .
   \   's/' .
   \   l:pattern .
