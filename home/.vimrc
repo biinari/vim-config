@@ -28,11 +28,13 @@ set dir=~/tmp//,/var/tmp//,/tmp//
 "set lbr
 
 augroup vimrc
+  " Remove all autocommands previously set by vimrc
+  autocmd!
   autocmd BufEnter *.py setl et ts=4 sw=4
   "autocmd BufEnter *.py inoremap # X#
   autocmd BufEnter *.rb,Capfile,capfile,Guardfile,Rakefile,*.thor,Vagrantfile setl et ts=2 sw=2
   autocmd BufEnter *.fdoc,*.fdoc.*,*.yml,*/.bundle/config setl et ts=2 sw=2 indentexpr= indentkeys=
-  
+
   autocmd BufEnter *.coffee setl et ts=4 sw=4
   autocmd BufEnter *.sass setl et ts=2 sw=2
   autocmd BufEnter *.html setl et ts=2 sw=2
