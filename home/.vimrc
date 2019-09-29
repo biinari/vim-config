@@ -214,7 +214,7 @@ let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 " time of sourcing vimrc
 function! SetPHPCSArgs()
   let g:syntastic_php_phpcs_args='--tab-width=' . &tabstop
-  " To set indent open /usr/share/pear/PHP/CodeSniffer/Standards/Generic/Sniffs/WhiteSpace/ScopeIndentSniff.php and alter $indent (default 4)
+  " To set indent use `phpcs --config-set tab_width 4`
 endfunction
 call SetPHPCSArgs()
 
