@@ -12,7 +12,6 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.pp setfiletype puppet
   au! BufRead,BufNewFile *.hsc setfiletype haskell
   au! BufRead,BufNewFile *.sass setfiletype sass
-  au! BufRead,BufNewFile *.tpl setfiletype smarty
   au! BufRead,BufNewFile capfile,Capfile,Guardfile,Vagrantfile,Berksfile,*.thor setfiletype ruby
   au! BufRead,BufNewFile */system/apache2/* setfiletype apache
   au! BufRead,BufNewFile */crontabs/* setfiletype crontab
@@ -37,5 +36,8 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.ex,*.exs setfiletype elixir
   au! BufRead,BufNewFile *.eex setfiletype elixir
   au! BufRead,BufNewFile *.tf,*.tfvars setfiletype terraform
+  au! BufRead,BufNewFile *.tpl setfiletype terraform
+  au! BufRead,BufNewFile .terraformrc setfiletype terraform
+  au! BufRead,BufNewFile _*.tf.sandbox.*,_*.tf.staging.*,_*.tf.preview.*,_*.tf.production.* setfiletype terraform
   au! BufRead,BufNewFile *.tfstate setfiletype javascript
 augroup END
