@@ -21,6 +21,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.rdoc setfiletype rdoc
   au! BufRead,BufNewFile *.slim setfiletype slim
   au! BufRead,BufNewFile */.bundle/config setfiletype yaml
+  au! BufRead,BufNewFile glide.lock setfiletype yaml
   au! BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
   au! BufRead,BufNewFile haproxy.cfg setfiletype haproxy
   au! BufRead,BufNewFile *.{mustache,handlebars,hbs,hogan,hulk,hjs}{,.erb} set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
