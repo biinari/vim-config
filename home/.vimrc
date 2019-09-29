@@ -132,6 +132,8 @@ if !exists('s:includedVundle')
   Bundle 'smerrill/vcl-vim-plugin'
   Bundle 'elixir-lang/vim-elixir'
   Bundle 'hashivim/vim-terraform'
+  Bundle 'fatih/vim-go'
+
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'smarty-syntax'
