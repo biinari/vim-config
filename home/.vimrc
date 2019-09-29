@@ -107,6 +107,7 @@ if !exists('s:includedVundle')
 
   " original repos on github
   Bundle 'tpope/vim-fugitive'
+  Bundle 'tpope/vim-rhubarb'
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'tpope/vim-bundler'
   Bundle 'tpope/vim-rails.git'
