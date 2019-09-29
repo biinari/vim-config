@@ -182,7 +182,7 @@ endif
 filetype plugin indent on " required by Vundle
 
 " Tags
-map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="vendor" --exclude="blog" .<CR>
+map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="*.sql" --exclude="vendor" --exclude="blog" .<CR>
 
 " JSON
 let g:vim_json_syntax_conceal = 0
