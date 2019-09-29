@@ -198,6 +198,12 @@ let g:syntastic_mode_map = {
 "  \ 'regex': 'assigned but unused variable' }
 let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/rubocop'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_ruby_rubocop_quiet_messages = {
+      \ 'regex': [
+        \ 'Remove debugger entry point `binding.pry`'] }
+let g:syntastic_ruby_mri_quiet_messages = {
+      \ 'regex': [
+        \ 'assigned but unused variable'] }
 
 "let g:syntastic_javascript_checkers = ['jsl']
 "let g:syntastic_javascript_jsl_args = '-conf /etc/jsl.conf'
