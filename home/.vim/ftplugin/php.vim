@@ -42,8 +42,19 @@ function! Whitespace() range
   \   's/' .
   \   l:pattern .
   \   '\([("''{\[\/]\|\d\|_\|\w\+[:(]\|null\|false\|true\|\$\)\@=' . '/\1 /gce'
-  " Execute this last as it can remove newlines
-  execute a:firstline . ',' . a:lastline . 's/}\s*\n\s*\(else\|catch\)/} \1/gce'
+  " Multiline replace breaks future lastline references so set l:lastline
+  let l:lastline = a:lastline
+  let l:numlines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/}\s*\n\s*\(else\|catch\)/} \1/gce'
+  let l:lastline -= l:numlines - line('$')
+  let l:numlines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/else\s*\n\s*{/else {/gce'
+  let l:lastline -= l:numlines - line('$')
+  let l:numlines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/)\s*\n\s*{/) {/gce'
+  let l:lastline -= l:numlines - line('$')
+  let l:numlines = line('$')
+  execute a:firstline . ',' . l:lastline . 's/\(\s*\)\(if\s*(.\{-})\s*{\)\s*\(.*\)\s*}/\1\2\r\1    \3\r\1}/gce'
 endfunction
 command! -nargs=0 -complete=command -range Whitespace <line1>,<line2>call Whitespace()
 
