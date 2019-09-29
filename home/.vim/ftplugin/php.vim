@@ -33,6 +33,10 @@ function! Whitespace() range
   execute a:firstline . ',' . a:lastline .
   \   's/\%([)"''\]}]\|\w\)\@<=' .
   \   l:pattern .
+  \   '\([("''{\[\/]\|\d\|_\|\w\+[:(]\|null\|false\|true\|\$\)\@=' . '/ \1 /gce'
+  execute a:firstline . ',' . a:lastline .
+  \   's/\%([)"''\]}]\|\w\)\@<=' .
+  \   l:pattern .
   \   '\(\w\+[:(]\|null\|false\|true\)\?\a\@!/ \1\2/gce'
   execute a:firstline . ',' . a:lastline .
   \   's/' .
