@@ -43,4 +43,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.tfstate setfiletype javascript
   au! BufRead,BufNewFile .env setfiletype conf
   au! BufRead,BufNewFile *.ts setfiletype typescript
+  au! BufRead,BufNewFile PULLREQ_EDITMSG setfiletype gitcommit
 augroup END
