@@ -283,4 +283,6 @@ map <M-PageDown> :call ToggleMaxWidth()<CR>
 
 au! BufWrite *.php,*.inc call SetPHPCSArgs()
 
-let g:vdebug_options = { 'continuous_mode': 1 }
+if exists("g:vdebug_options")
+  let g:vdebug_options = { 'continuous_mode': 1 }
+endif
