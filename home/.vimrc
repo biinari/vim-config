@@ -252,6 +252,10 @@ nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
   \ "> trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+let g:go_fmt_autosave = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 au! BufWrite *.php,*.inc call SetPHPCSArgs()
 
 let g:vdebug_options = { 'continuous_mode': 1 }
