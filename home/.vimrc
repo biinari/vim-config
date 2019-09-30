@@ -218,11 +218,6 @@ function! SetPHPCSArgs()
 endfunction
 call SetPHPCSArgs()
 
-let g:syntastic_php_phpcs_quiet_messages = {
-      \ 'regex': [
-        \ 'Language constructs must be followed by a single space; expected \\"\(require\|include\)\(_once\)\?',
-        \ '\\"\(require\|include\)\(_once\)\?\\" is a statement not a function',
-        \ 'This comment is \d*% valid code'] }
 
 let g:syntastic_python_pylint_args='--rcfile=/home/bill/.pylintrc'
 
