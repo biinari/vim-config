@@ -256,6 +256,31 @@ let g:go_fmt_autosave = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
+function! ToggleMaxHeight()
+  if &lines > 24
+    set lines=23
+  else
+    if has("gui_running")
+      set lines=999
+    else
+      set lines=53
+    endif
+  endif
+endfunction
+function! ToggleMaxWidth()
+  if &columns > 80
+    set columns=80
+  else
+    if has("gui_running")
+      set columns=999
+    else
+      set columns=191
+    endif
+  endif
+endfunction
+map <M-PageUp> :call ToggleMaxHeight()<CR>
+map <M-PageDown> :call ToggleMaxWidth()<CR>
+
 au! BufWrite *.php,*.inc call SetPHPCSArgs()
 
 let g:vdebug_options = { 'continuous_mode': 1 }
