@@ -218,6 +218,7 @@ function! SetPHPCSArgs()
 endfunction
 call SetPHPCSArgs()
 
+let g:syntastic_sh_shellcheck_args = "-e SC2154"
 
 let g:syntastic_python_pylint_args='--rcfile=/home/bill/.pylintrc'
 
