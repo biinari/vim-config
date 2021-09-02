@@ -27,6 +27,9 @@ set dir=~/tmp//,/var/tmp//,/tmp//
 "let &showbreak = '| '
 "set lbr
 
+" Default javascript checkers
+let g:syntastic_javascript_checkers = ['eslint']
+
 augroup vimrc
   " Remove all autocommands previously set by vimrc
   autocmd!
