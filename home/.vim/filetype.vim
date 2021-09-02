@@ -45,4 +45,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.ts setfiletype typescript
   au! BufRead,BufNewFile PULLREQ_EDITMSG setfiletype gitcommit
   au! BufRead,BufNewFile *.blade.php setfiletype blade
+  au! BufRead,BufNewFile go.mod,go.sum setfiletype gomod
 augroup END
