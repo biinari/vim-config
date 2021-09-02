@@ -113,57 +113,60 @@ if !exists('s:includedVundle')
       let s:hasVundle=0
   endif
   set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
+  call vundle#begin()
 
   " let Vundle manage Vundle
   " required by Vundle
-  Bundle 'gmarik/vundle'
+  Plugin 'gmarik/vundle'
 
   " original repos on github
-  Bundle 'tpope/vim-fugitive'
-  Bundle 'tpope/vim-rhubarb'
-  Bundle 'vim-ruby/vim-ruby'
-  Bundle 'tpope/vim-bundler'
-  Bundle 'tpope/vim-rails.git'
-  Bundle 'tpope/vim-rake.git'
-  Bundle 'tpope/vim-projectionist.git'
-  Bundle 'othree/html5.vim'
-  Bundle 'kchmck/vim-coffee-script'
-  Bundle 'cakebaker/scss-syntax.vim'
-  Bundle 'tpope/vim-haml'
-  Bundle 'rodjek/vim-puppet'
-  Bundle 'joonty/vdebug'
-  Bundle 'jtratner/vim-flavored-markdown'
-  Bundle 'slim-template/vim-slim'
-  Bundle 'StanAngeloff/php.vim'
-  Bundle 'exu/pgsql.vim'
-  Bundle 'mustache/vim-mustache-handlebars'
-  Bundle 'scrooloose/syntastic'
-  Bundle 'elzr/vim-json'
-  Bundle 'evidens/vim-twig'
-  Bundle 'tmatilai/vim-monit'
-  Bundle 'derekwyatt/vim-scala'
-  Bundle 'smerrill/vcl-vim-plugin'
-  Bundle 'elixir-lang/vim-elixir'
-  Bundle 'hashivim/vim-terraform'
-  Bundle 'fatih/vim-go'
-  Bundle 'ajorgensen/vim-markdown-toc'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-rhubarb'
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'tpope/vim-bundler'
+  Plugin 'tpope/vim-rails.git'
+  Plugin 'tpope/vim-rake.git'
+  Plugin 'tpope/vim-projectionist.git'
+  Plugin 'othree/html5.vim'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'cakebaker/scss-syntax.vim'
+  Plugin 'tpope/vim-haml'
+  Plugin 'rodjek/vim-puppet'
+  Plugin 'joonty/vdebug'
+  Plugin 'jtratner/vim-flavored-markdown'
+  Plugin 'slim-template/vim-slim'
+  Plugin 'StanAngeloff/php.vim'
+  Plugin 'exu/pgsql.vim'
+  Plugin 'mustache/vim-mustache-handlebars'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'elzr/vim-json'
+  Plugin 'evidens/vim-twig'
+  Plugin 'tmatilai/vim-monit'
+  Plugin 'derekwyatt/vim-scala'
+  Plugin 'smerrill/vcl-vim-plugin'
+  Plugin 'elixir-lang/vim-elixir'
+  Plugin 'hashivim/vim-terraform'
+  Plugin 'fatih/vim-go'
+  Plugin 'ajorgensen/vim-markdown-toc'
 
   " vim-scripts repos
-  Bundle 'L9'
-  Bundle 'smarty-syntax'
-  Bundle 'matchit.zip'
-  Bundle 'RDoc'
-  Bundle 'nginx.vim'
-  Bundle 'haproxy'
-  Bundle 'Jinja'
+  Plugin 'L9'
+  Plugin 'smarty-syntax'
+  Plugin 'matchit.zip'
+  Plugin 'RDoc'
+  Plugin 'nginx.vim'
+  Plugin 'haproxy'
+  Plugin 'Jinja'
 
+  call vundle#end() " required by Vundle
   if s:hasVundle == 0
-      echo "Installing Bundles, please ignore key map error messages"
+      echo "Installing Plugins, please ignore key map error messages"
       echo ""
-      :BundleInstall
+      :PluginInstall
+      let s:hasVundle=1
   endif
 endif
+filetype plugin indent on " required by Vundle
 
 "let php_sql_query = 1
 "let php_html_in_strings = 1
@@ -192,8 +195,6 @@ if has('nvim')
   "set titlestring=%f %m
   set title
 endif
-
-filetype plugin indent on " required by Vundle
 
 " Tags
 map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="*.sql" --exclude="vendor" --exclude="blog" .<CR>
