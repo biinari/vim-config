@@ -36,7 +36,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile rabbitmq.config setfiletype erlang
   au! BufRead,BufNewFile *.ex,*.exs setfiletype elixir
   au! BufRead,BufNewFile *.eex setfiletype elixir
-  au! BufRead,BufNewFile *.tf,*.tfvars setfiletype terraform
+  au! BufRead,BufNewFile *.tf,*.tfvars,*.hcl setfiletype terraform
   au! BufRead,BufNewFile *.tpl setfiletype terraform
   au! BufRead,BufNewFile .terraformrc setfiletype terraform
   au! BufRead,BufNewFile _*.tf.sandbox.*,_*.tf.staging.*,_*.tf.preview.*,_*.tf.production.* setfiletype terraform
