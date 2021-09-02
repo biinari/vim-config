@@ -52,7 +52,7 @@ augroup vimrc
   autocmd BufEnter *.html setl et ts=2 sw=2
   autocmd BufEnter *.tpl setl et ts=2 sw=2
   autocmd BufEnter *.erb setl et ts=2 sw=2
-  autocmd BufEnter *.php,*.inc setl ts=4 sw=4 indentexpr= indentkeys= ai si
+  autocmd BufEnter *.php,*.inc setl noet ts=4 sw=4 indentexpr= indentkeys= ai si
   autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
   autocmd BufEnter *.md setl et ts=4 sw=4
   autocmd BufEnter *.go setl noet ts=4 sw=4
@@ -222,14 +222,6 @@ let g:syntastic_ruby_mri_quiet_messages = {
 
 let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 
-" Set tab-width for PHP_CodeSniffer based on current tabstop - not just at
-" time of sourcing vimrc
-function! SetPHPCSArgs()
-  let g:syntastic_php_phpcs_args='--tab-width=' . &tabstop
-  " To set indent use `phpcs --config-set tab_width 4`
-endfunction
-call SetPHPCSArgs()
-
 let g:syntastic_sh_shellcheck_args = "-e SC2154"
 
 function! Python2()
@@ -258,7 +250,7 @@ let g:syntastic_yaml_jsyaml_quiet_messages = {
       \ 'regex': [
         \ 'unknown tag !<!ruby/\(object:\(\w\|:\)*\|regexp\)>'] }
 
-nmap <C-s> :call SetPHPCSArgs()<CR> :SyntasticCheck<CR>
+nmap <C-s> :SyntasticCheck<CR>
 nmap <M-s> :SyntasticReset<CR>
 nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
   \ "> trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -292,8 +284,6 @@ function! ToggleMaxWidth()
 endfunction
 map <M-PageUp> :call ToggleMaxHeight()<CR>
 map <M-PageDown> :call ToggleMaxWidth()<CR>
-
-au! BufWrite *.php,*.inc call SetPHPCSArgs()
 
 if exists("g:vdebug_options")
   let g:vdebug_options = { 'continuous_mode': 1 }
