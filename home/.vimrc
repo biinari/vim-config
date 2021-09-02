@@ -136,6 +136,7 @@ if !exists('s:includedVundle')
   Plugin 'jtratner/vim-flavored-markdown'
   Plugin 'slim-template/vim-slim'
   Plugin 'StanAngeloff/php.vim'
+  Plugin 'jwalton512/vim-blade'
   Plugin 'exu/pgsql.vim'
   Plugin 'mustache/vim-mustache-handlebars'
   Plugin 'scrooloose/syntastic'
