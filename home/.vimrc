@@ -30,6 +30,15 @@ set dir=~/tmp//,/var/tmp//,/tmp//
 " Default javascript checkers
 let g:syntastic_javascript_checkers = ['eslint']
 
+function! EnableBladeTags()
+  " blade.php open / close tags
+  if (exists("php_parent_error_open") && php_parent_error_open)
+    syn region phpRegion matchgroup=Delimiter start="@php" end="@endphp" contains=@phpClTop
+  else
+    syn region phpRegion matchgroup=Delimiter start="@php" end="@endphp" contains=@phpClTop keepend
+  endif
+endfunction
+
 augroup vimrc
   " Remove all autocommands previously set by vimrc
   autocmd!
