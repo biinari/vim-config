@@ -44,4 +44,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile .env setfiletype conf
   au! BufRead,BufNewFile *.ts setfiletype typescript
   au! BufRead,BufNewFile PULLREQ_EDITMSG setfiletype gitcommit
+  au! BufRead,BufNewFile *.blade.php setfiletype blade
 augroup END
