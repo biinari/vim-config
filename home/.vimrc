@@ -58,6 +58,7 @@ augroup vimrc
   autocmd BufEnter *.md setl et ts=4 sw=4
   autocmd BufEnter *.go setl noet ts=4 sw=4
   autocmd BufEnter Makefile setl noet ts=4 sw=4
+  autocmd BufEnter /etc/nginx/*,/usr/local/nginx/conf/* if or(&ft == 'nginx', &ft == '') | set iskeyword=@,48-57,_,192-255 | endif
   autocmd BufWritePost *.go silent !go fmt %
   " PKGBUILD expect SC2034 unused variables
   " SC2154 unassigend variables (srcdir,pkgdir)
