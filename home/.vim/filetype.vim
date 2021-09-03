@@ -12,7 +12,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.pp setfiletype puppet
   au! BufRead,BufNewFile *.hsc setfiletype haskell
   au! BufRead,BufNewFile *.sass setfiletype sass
-  au! BufRead,BufNewFile capfile,Capfile,Guardfile,Vagrantfile,Berksfile,*.thor setfiletype ruby
+  au! BufRead,BufNewFile Appraisals,capfile,Capfile,Guardfile,Vagrantfile,Berksfile,*.thor setfiletype ruby
   au! BufRead,BufNewFile */system/apache2/* setfiletype apache
   au! BufRead,BufNewFile */crontabs/* setfiletype crontab
   au! BufRead,BufNewFile *.md,*.markdown setfiletype ghmarkdown
