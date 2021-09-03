@@ -277,6 +277,10 @@ let g:syntastic_yaml_jsyaml_quiet_messages = {
       \ 'regex': [
         \ 'unknown tag !<!ruby/\(object:\(\w\|:\)*\|regexp\)>'] }
 
+let g:syntastic_go_checkers = ['go']
+let g:syntastic_go_govet_quiet_messages = {
+  \ 'regex': ['main redeclared in this block'] }
+
 nmap <C-s> :SyntasticCheck<CR>
 nmap <M-s> :SyntasticReset<CR>
 nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
