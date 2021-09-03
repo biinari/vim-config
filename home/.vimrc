@@ -267,6 +267,9 @@ let g:syntastic_scss_checkers = ['sass_lint']
 
 let g:syntastic_c_include_dirs = ['includes', 'headers', '/usr/include/xorg', '/usr/include/pixman-1']
 let g:syntastic_c_checkers = ['gcc', 'cppcheck']
+let g:syntastic_c_no_include_search = 1
+let g:syntastic_c_config_file = '.syntastic_c_config'
+let g:syntastic_cpp_config = '.syntastic_cpp_config'
 
 let g:syntastic_html_checkers = ['w3']
 
