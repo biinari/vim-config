@@ -163,6 +163,8 @@ if !exists('s:includedVundle')
   Plugin 'smerrill/vcl-vim-plugin'
   "Plugin 'elixir-lang/vim-elixir'
   Plugin 'hashivim/vim-terraform'
+  " master currently broken ( 2020-07-06 2c6bffb4 )
+  " TODO: How can we install stable release instead of github master?
   Plugin 'fatih/vim-go'
   "Plugin 'leafgarland/typescript-vim'
   Plugin 'ajorgensen/vim-markdown-toc'
