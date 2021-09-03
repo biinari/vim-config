@@ -228,7 +228,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = {
       \ 'mode': 'passive',
-      \ 'active_filetypes': ['ruby', 'javascript', 'php', 'css', 'scss', 'sass', 'xml', 'python', 'yaml', 'json', 'sh', 'twig'] }
+      \ 'active_filetypes': ['ruby', 'javascript', 'php', 'xml', 'python', 'yaml', 'json', 'sh', 'twig'] }
 
 "let g:syntastic_ruby_mri_quiet_messages = {
 "  \ 'regex': 'assigned but unused variable' }
