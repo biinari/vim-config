@@ -200,6 +200,9 @@ hi String guifg=#cc33ee ctermfg=DarkMagenta
 " let g:go_highlight_chan_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 
+let g:go_template_file = $HOME."/.vim/templates/go/hello.go"
+let g:go_template_test_file = $HOME."/.vim/templates/go/hello_test.go"
+
 hi DiffText term=reverse cterm=bold ctermbg=0 gui=bold guibg=Red guifg=Black ctermfg=White
 
 hi link jsonKeyword Identifier
