@@ -261,7 +261,7 @@ endfunction
 command! -nargs=0 -complete=command Python3 call Python3()
 call Python3()
 
-let g:syntastic_css_csslint_args='--ignore=adjoining-classes,important,overqualified-elements,compatible-vendor-prefixes,ids,order-alphabetical,qualified-headings,unique-headings'
+let g:syntastic_css_csslint_args='--ignore=adjoining-classes,important,overqualified-elements,compatible-vendor-prefixes,ids,order-alphabetical,qualified-headings,unique-headings,box-sizing'
 
 let g:syntastic_scss_checkers = ['sass_lint']
 
