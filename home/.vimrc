@@ -73,6 +73,15 @@ augroup vimrc
   " SC2207 split command output to array
   autocmd BufEnter bash_completion*.sh let g:syntastic_sh_shellcheck_args = "-s bash -e SC2034,SC2154,SC2164,SC2207"
 
+  " default js
+  " autocmd BufEnter *.js let g:syntastic_javascript_checkers = ['eslint']
+  " v2-ember-web-app
+  autocmd BufEnter */v2-ember-web-app/*,*/v2-ember-web-ui/* let g:syntastic_javascript_checkers = ['eslint']
+  " v2-user-interface
+  autocmd BufEnter */user-interface/app/assets/javascripts/* let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+  " v2-ember-web-server
+  autocmd BufEnter */v2-ember-web-server/* let g:syntastic_javascript_checkers = ['standard']
+
   autocmd BufWritePost *.tf,*.tfvars silent !$GOBIN/terraform fmt %
 augroup END
 
@@ -231,8 +240,6 @@ let g:syntastic_ruby_mri_quiet_messages = {
 
 "let g:syntastic_javascript_checkers = ['jsl']
 "let g:syntastic_javascript_jsl_args = '-conf /etc/jsl.conf'
-
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 
 let g:syntastic_sh_shellcheck_args = "-e SC2154"
 
