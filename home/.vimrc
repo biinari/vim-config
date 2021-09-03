@@ -54,7 +54,7 @@ augroup vimrc
   autocmd BufEnter *.erb setl et ts=2 sw=2
   autocmd BufEnter *.php,*.inc setl noet ts=4 sw=4 indentexpr= indentkeys= ai si
   autocmd BufEnter *.blade.php setl et ts=2 sw=2 indentexpr= indentkeys= ai si
-  autocmd BufEnter *.cc,*.c,*.h setl et ts=4 sw=4
+  autocmd BufEnter *.cc,*.c,*.h setl et ts=8 sw=4
   autocmd BufEnter *.md setl et ts=4 sw=4
   autocmd BufEnter *.go setl noet ts=4 sw=4
   autocmd BufEnter Makefile setl noet ts=4 sw=4
