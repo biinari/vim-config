@@ -168,6 +168,7 @@ if !exists('s:includedVundle')
   Plugin 'fatih/vim-go'
   "Plugin 'leafgarland/typescript-vim'
   Plugin 'ajorgensen/vim-markdown-toc'
+  Plugin 'editorconfig/editorconfig-vim'
 
   " vim-scripts repos
   "Plugin 'L9'
