@@ -231,7 +231,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = {
       \ 'mode': 'passive',
-      \ 'active_filetypes': ['ruby', 'javascript', 'php', 'xml', 'python', 'yaml', 'json', 'sh', 'twig'] }
+      \ 'active_filetypes': ['ruby', 'javascript', 'php', 'xml', 'python', 'yaml', 'json', 'sh', 'twig', 'css'] }
 
 let g:syntastic_php_phpcs_exec = '/usr/local/bin/phpcs'
 
