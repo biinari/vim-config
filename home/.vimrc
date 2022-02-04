@@ -120,20 +120,20 @@ set runtimepath+=/usr/share/lilypond/2.12.2/vim/
 if !exists('s:includedVundle')
   let s:includedVundle = 1
   let s:hasVundle=1
-  let s:vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+  let s:vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
   if !filereadable(s:vundle_readme)
       echo "Installing Vundle..."
       echo ""
       silent !mkdir -p ~/.vim/bundle
-      silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+      silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
       let s:hasVundle=0
   endif
-  set rtp+=~/.vim/bundle/vundle/
+  set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 
   " let Vundle manage Vundle
   " required by Vundle
-  Plugin 'gmarik/vundle'
+  Plugin 'VundleVim/Vundle.vim'
 
   " original repos on github
   Plugin 'tpope/vim-fugitive'
