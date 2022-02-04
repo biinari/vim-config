@@ -86,6 +86,7 @@ augroup vimrc
 augroup END
 
 set nocompatible " be iMproved
+syntax on
 filetype off     " required by Vundle
 if !has('nvim')
   set history=200
@@ -110,7 +111,6 @@ else
 endif
 set background=dark
 
-syntax on
 colorscheme koehler
 " dark:  candycode fruity koehler motus tango torte
 " light: sienna tolerable
