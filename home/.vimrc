@@ -169,6 +169,7 @@ if !exists('s:includedVundle')
   "Plugin 'leafgarland/typescript-vim'
   Plugin 'ajorgensen/vim-markdown-toc'
   Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'aklt/plantuml-syntax'
 
   " vim-scripts repos
   "Plugin 'L9'
