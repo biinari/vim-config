@@ -13,7 +13,7 @@ function! JSLint()
   2
   set nomodified
 endfunction
-command! -nargs=0 -complete=command JSLint call JSLint()
+command! -nargs=0 JSLint call JSLint()
 
 function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/\m\s\+$//ce'
@@ -70,12 +70,12 @@ function! Whitespace() range
   let l:filelines = line('$')
   execute a:firstline . ',' . l:lastline . 's/\m/\r/gce'
 endfunction
-command! -nargs=0 -complete=command -range Whitespace <line1>,<line2>call Whitespace()
+command! -nargs=0 -range Whitespace <line1>,<line2>call Whitespace()
 
 function! Equivalent() range
   execute a:firstline . ',' . a:lastline . 's/\m[!=]\@<!\([!=]=\)=\@!/\1=/gce'
 endfunction
-command! -nargs=0 -complete=command -range Equivalent <line1>,<line2>call Equivalent()
+command! -nargs=0 -range Equivalent <line1>,<line2>call Equivalent()
 
 function! Blocks() range
   " May change newlines
@@ -92,7 +92,7 @@ function! Blocks() range
   let l:filelines = line('$')
   execute a:firstline . ',' . l:lastline . 's/\m^\(\s*\)\(\%(}\s*\)\?else\)\s\{-}\( \/\/.*\)\?\n\(\%(\s\|\n\)*{\@!\S\_.\{-};\%(\s*\/\/.*\)\?$\)/\1\2 {\3\r\4\r\1}/gce'
 endfunction
-command! -nargs=0 -complete=command -range Blocks <line1>,<line2>call Blocks()
+command! -nargs=0 -range Blocks <line1>,<line2>call Blocks()
 
 function! Retab4to2() range
   set ts=4 sw=4 noet
@@ -100,7 +100,7 @@ function! Retab4to2() range
   set ts=2 sw=2 et
   execute a:firstline . ',' . a:lastline . 'retab!'
 endfunction
-command! -nargs=0 -complete=command -range Retab4to2 <line1>,<line2>call Retab4to2()
+command! -nargs=0 -range Retab4to2 <line1>,<line2>call Retab4to2()
 
 function! EmberCleanup() range
   let l:lastline = a:lastline
@@ -124,4 +124,4 @@ function! EmberCleanup() range
   let l:filelines = line('$')
   execute a:firstline . ',' . l:lastline . 's/\m^\s*\n\(\s*}\)/\1/ce'
 endfunction
-command! -nargs=0 -complete=command -range EmberCleanup <line1>,<line2>call EmberCleanup()
+command! -nargs=0 -range EmberCleanup <line1>,<line2>call EmberCleanup()

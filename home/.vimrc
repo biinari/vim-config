@@ -258,12 +258,12 @@ function! Python2()
   let g:syntastic_python_pylint_exec='/usr/bin/pylint2'
   let g:syntastic_python_pylint_args='-E --rcfile=/home/bill/.pylintrc'
 endfunction
-command! -nargs=0 -complete=command Python2 call Python2()
+command! -nargs=0 Python2 call Python2()
 function! Python3()
   let g:syntastic_python_python_exec='/usr/bin/python3'
   let g:syntastic_python_pylint_exec='/usr/bin/pylint3'
 endfunction
-command! -nargs=0 -complete=command Python3 call Python3()
+command! -nargs=0 Python3 call Python3()
 call Python3()
 
 let g:syntastic_css_csslint_args='--ignore=adjoining-classes,important,overqualified-elements,compatible-vendor-prefixes,ids,order-alphabetical,qualified-headings,unique-headings,box-sizing'

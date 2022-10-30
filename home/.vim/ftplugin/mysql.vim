@@ -11,7 +11,7 @@ function! AuditCut()
 	%y+
 	1
 endfunction
-command! -nargs=0 -complete=command AuditCut call AuditCut()
+command! -nargs=0 AuditCut call AuditCut()
 
 function! CharsetConv()
 	if search('CREATE DATABASE')
@@ -39,4 +39,4 @@ function! CharsetConv()
 	execute '1,' . s:half . 's/ALTER TABLE `\([^`]*\)` MODIFY `\([^`]*\)`.*/ALTER TABLE `\1` MODIFY `\2` BLOB;/e'
 	execute '1,' . s:half . 's/\(\(ALTER TABLE `[^`]*` MODIFY `[^`]*` BLOB;\n\)\+\)\(\(ALTER TABLE `[^`]*` DROP \(UNIQUE \)\?KEY `[^`]*`;\n\)\+\)/\3\1/e'
 endfunction
-command! -nargs=0 -complete=command CharsetConv call CharsetConv()
+command! -nargs=0 CharsetConv call CharsetConv()

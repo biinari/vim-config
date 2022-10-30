@@ -7,4 +7,4 @@ function! SingleQuote() range
 	execute a:firstline . ',' . a:lastline . 's/"/''/g'
 	execute a:firstline . ',' . a:lastline . 's/\\\''/"/g'
 endfunction
-command! -nargs=0 -complete=command SingleQuote call SingleQuote()
+command! -nargs=0 SingleQuote call SingleQuote()

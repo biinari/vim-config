@@ -8,4 +8,4 @@ function! ChefAttributesArraySyntax() range
     let l:i += 1
   endwhile
 endfunction
-command! -nargs=0 -complete=command -range ChefAttributesArraySyntax <line1>,<line2>call ChefAttributesArraySyntax()
+command! -nargs=0 -range ChefAttributesArraySyntax <line1>,<line2>call ChefAttributesArraySyntax()

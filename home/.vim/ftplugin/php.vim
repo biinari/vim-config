@@ -1,7 +1,7 @@
 function! Lint()
   ! php -n -l %
 endfunction
-command! -nargs=0 -complete=command Lint call Lint()
+command! -nargs=0 Lint call Lint()
 
 function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/\(\S\)\@<=\s\+$//ce'
@@ -56,12 +56,12 @@ function! Whitespace() range
   let l:numlines = line('$')
   execute a:firstline . ',' . l:lastline . 's/\(\s*\)\(if\s*(.\{-})\s*{\)\s*\(.*\)\s*}/\1\2\r\1    \3\r\1}/gce'
 endfunction
-command! -nargs=0 -complete=command -range Whitespace <line1>,<line2>call Whitespace()
+command! -nargs=0 -range Whitespace <line1>,<line2>call Whitespace()
 
 function! Multibyte() range
   execute a:firstline . ',' . a:lastline . 's/\(mb_\)\@<!\(split\|strcut\|strr\?i\?pos\|stri\?str\|strlen\|strtolower\|strtoupper\|substr\|substr_count\)/mb_\2/gce'
 endfunction
-command! -nargs=0 -complete=command -range Multibyte <line1>,<line2>call Multibyte()
+command! -nargs=0 -range Multibyte <line1>,<line2>call Multibyte()
 
 function! FixStyle() range
   execute a:firstline . ',' . a:lastline . 'retab'
@@ -101,7 +101,7 @@ function! FixStyle() range
   let l:lastline -= l:numlines - line('$')
   let l:numlines = line('$')
 endfunction
-command! -nargs=0 -complete=command -range FixStyle <line1>,<line2>call FixStyle()
+command! -nargs=0 -range FixStyle <line1>,<line2>call FixStyle()
 
 set foldlevel=1
 
