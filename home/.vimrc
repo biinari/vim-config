@@ -308,14 +308,18 @@ function! ToggleMaxHeight()
   endif
 endfunction
 function! ToggleMaxWidth()
-  if &columns > 80
+  if &columns > 201
     set columns=80
-  else
+  elseif &columns > 160
     if has("gui_running")
       set columns=999
     else
-      set columns=191
+      set columns=283
     endif
+  elseif &columns > 80
+    set columns=201
+  else
+    set columns=160
   endif
 endfunction
 map <M-PageUp> :call ToggleMaxHeight()<CR>
