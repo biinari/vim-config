@@ -171,6 +171,7 @@ if !exists('s:includedVundle')
   Plugin 'ajorgensen/vim-markdown-toc'
   Plugin 'editorconfig/editorconfig-vim'
   Plugin 'aklt/plantuml-syntax'
+  Plugin 'isobit/vim-caddyfile'
 
   " vim-scripts repos
   "Plugin 'L9'
