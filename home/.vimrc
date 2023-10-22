@@ -116,8 +116,6 @@ colorscheme koehler
 " dark:  candycode fruity koehler motus tango torte
 " light: sienna tolerable
 
-set runtimepath+=/usr/share/lilypond/2.12.2/vim/
-
 if !exists('s:includedVundle')
   let s:includedVundle = 1
   let s:hasVundle=1

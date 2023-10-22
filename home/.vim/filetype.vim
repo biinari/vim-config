@@ -4,7 +4,6 @@ if exists("did_load_filetypes")
 endif
 augroup filetypedetect
   au! BufRead,BufNewFile *.ldf setfiletype tex
-  au! BufRead,BufNewFile *.ly,*.ily setfiletype lilypond
   au! BufRead,BufNewFile *.htc setfiletype javascript
   au! BufRead,BufNewFile */db/structure.sql setfiletype pgsql
   au! BufRead,BufNewFile *.sql setfiletype pgsql
