@@ -47,4 +47,5 @@ augroup filetypedetect
   au! BufRead,BufNewFile PULLREQ_EDITMSG setfiletype gitcommit
   au! BufRead,BufNewFile *.blade.php setfiletype blade
   au! BufRead,BufNewFile go.mod,go.sum setfiletype gomod
+  au! BufRead,BufNewFile Dockerfile.* setfiletype dockerfile
 augroup END
