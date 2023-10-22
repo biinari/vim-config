@@ -267,8 +267,6 @@ endfunction
 command! -nargs=0 Python3 call Python3()
 call Python3()
 
-let g:syntastic_css_csslint_args='--ignore=adjoining-classes,important,overqualified-elements,compatible-vendor-prefixes,ids,order-alphabetical,qualified-headings,unique-headings,box-sizing'
-
 let g:syntastic_scss_checkers = ['sass_lint']
 
 let g:syntastic_c_include_dirs = ['includes', 'headers', '/usr/include/xorg', '/usr/include/pixman-1']
