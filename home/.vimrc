@@ -239,7 +239,8 @@ endif
 " Tags
 map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude="*.sql" --exclude="vendor" --exclude="blog" .<CR>
 
-" JSON
+" JSON disable auto-conceal quotes (documentation on the variable differs
+" between ':h ft-json-syntax' and https://github.com/elzr/vim-json )
 let g:vim_json_syntax_conceal = 0
 let g:vim_json_conceal = 0
 
