@@ -27,8 +27,25 @@ set dir=~/tmp//,/var/tmp//,/tmp//
 "let &showbreak = '| '
 "set lbr
 
-" Default javascript checkers
-let g:syntastic_javascript_checkers = ['eslint']
+" ALE lint options (before plugin is loaded)
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" let g:ale_history_log_output = 0
+let g:ale_set_balloons = 0
+let g:ale_list_window_size = 5
+let g:ale_open_list = 1
+augroup CloseLocListWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
+
+let g:ale_c_parse_makefile = 1
+" Shellcheck ignore SC2154: var is referenced but not assigned
+let g:ale_sh_shellcheck_options = "-e SC2154"
+
+let g:ale_linters_ignore = {
+  \   'go': ['golangci-lint']
+  \ }
 
 function! EnableBladeTags()
   " blade.php open / close tags
@@ -65,23 +82,21 @@ augroup vimrc
   " SC2154 unassigend variables (srcdir,pkgdir)
   " SC2164 cd to known good path
   " SC2016 expressions in single quotes in sed patterns
-  autocmd BufEnter PKGBUILD let g:syntastic_sh_shellcheck_args = "-s bash -e SC2034,SC2154,SC2164,SC2016"
-  autocmd BufEnter *.install let g:syntastic_sh_shellcheck_args = "-s bash -e SC2154"
+  autocmd BufEnter PKGBUILD let b:ale_sh_shellcheck_options = "-s bash -e SC2034,SC2154,SC2164,SC2016"
+  autocmd BufEnter *.install let b:ale_sh_shellcheck_options = "-s bash -e SC2154"
   " bash completions expect:
   " SC2034 unused variables
   " SC2154 variable referenced but not assigned
   " SC2164 popd without check (as after a pushd)
   " SC2207 split command output to array
-  autocmd BufEnter bash_completion*.sh let g:syntastic_sh_shellcheck_args = "-s bash -e SC2034,SC2154,SC2164,SC2207"
+  autocmd BufEnter bash_completion*.sh let b:ale_sh_shellcheck_options = "-s bash -e SC2034,SC2154,SC2164,SC2207"
 
-  " default js
-  " autocmd BufEnter *.js let g:syntastic_javascript_checkers = ['eslint']
   " v2-ember-web-app
-  autocmd BufEnter */v2-ember-web-app/*,*/v2-ember-web-ui/* let g:syntastic_javascript_checkers = ['eslint']
+  autocmd BufEnter */v2-ember-web-app/*,*/v2-ember-web-ui/* let b:ale_linters = { 'javascript': ['eslint'] }
   " v2-user-interface
-  autocmd BufEnter */user-interface/app/assets/javascripts/* let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+  autocmd BufEnter */user-interface/app/assets/javascripts/* let b:ale_linters = { 'javascript': ['jscs', 'jshint'] }
   " v2-ember-web-server
-  autocmd BufEnter */v2-ember-web-server/* let g:syntastic_javascript_checkers = ['standard']
+  autocmd BufEnter */v2-ember-web-server/* let b:ale_linters = { 'javascript': ['standard'] }
 
   autocmd BufWritePost *.tf,*.tfvars silent !$GOBIN/terraform fmt %
 augroup END
@@ -154,7 +169,7 @@ if !exists('s:includedVundle')
   Plugin 'jwalton512/vim-blade'
   Plugin 'exu/pgsql.vim'
   Plugin 'mustache/vim-mustache-handlebars'
-  Plugin 'scrooloose/syntastic'
+  Plugin 'dense-analysis/ale'
   Plugin 'elzr/vim-json'
   "Plugin 'evidens/vim-twig'
   "Plugin 'tmatilai/vim-monit'
@@ -226,65 +241,27 @@ map <F8> :!/usr/bin/ctags -R --fields=+iaS --extra=+q --exclude="*.js" --exclude
 
 " JSON
 let g:vim_json_syntax_conceal = 0
+let g:vim_json_conceal = 0
 
-" Syntastic lint and style checkers
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_mode_map = {
-      \ 'mode': 'passive',
-      \ 'active_filetypes': ['ruby', 'javascript', 'php', 'xml', 'python', 'yaml', 'json', 'sh', 'twig', 'css'] }
+" function! Python2()
+"   let g:syntastic_python_python_exec='/usr/bin/python2'
+"   let g:syntastic_python_pylint_exec='/usr/bin/pylint2'
+"   let g:syntastic_python_pylint_args='-E --rcfile=/home/bill/.pylintrc'
+" endfunction
+" command! -nargs=0 Python2 call Python2()
+" function! Python3()
+"   let g:syntastic_python_python_exec='/usr/bin/python3'
+"   let g:syntastic_python_pylint_exec='/usr/bin/pylint3'
+" endfunction
+" command! -nargs=0 Python3 call Python3()
+" call Python3()
 
-let g:syntastic_php_phpcs_exec = '/usr/local/bin/phpcs'
+" let g:syntastic_go_checkers = ['go']
+" let g:syntastic_go_govet_quiet_messages = {
+"   \ 'regex': ['main redeclared in this block'] }
 
-"let g:syntastic_ruby_mri_quiet_messages = {
-"  \ 'regex': 'assigned but unused variable' }
-let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/rubocop'
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_ruby_rubocop_quiet_messages = {
-      \ 'regex': [
-        \ 'Remove debugger entry point `binding.pry`'] }
-let g:syntastic_ruby_mri_quiet_messages = {
-      \ 'regex': [
-        \ 'assigned but unused variable'] }
-
-"let g:syntastic_javascript_checkers = ['jsl']
-"let g:syntastic_javascript_jsl_args = '-conf /etc/jsl.conf'
-
-let g:syntastic_sh_shellcheck_args = "-e SC2154"
-
-function! Python2()
-  let g:syntastic_python_python_exec='/usr/bin/python2'
-  let g:syntastic_python_pylint_exec='/usr/bin/pylint2'
-  let g:syntastic_python_pylint_args='-E --rcfile=/home/bill/.pylintrc'
-endfunction
-command! -nargs=0 Python2 call Python2()
-function! Python3()
-  let g:syntastic_python_python_exec='/usr/bin/python3'
-  let g:syntastic_python_pylint_exec='/usr/bin/pylint3'
-endfunction
-command! -nargs=0 Python3 call Python3()
-call Python3()
-
-let g:syntastic_scss_checkers = ['sass_lint']
-
-let g:syntastic_c_include_dirs = ['includes', 'headers', '/usr/include/xorg', '/usr/include/pixman-1']
-let g:syntastic_c_checkers = ['gcc', 'cppcheck']
-let g:syntastic_c_no_include_search = 1
-let g:syntastic_c_config_file = '.syntastic_c_config'
-let g:syntastic_cpp_config = '.syntastic_cpp_config'
-
-let g:syntastic_html_checkers = ['w3']
-
-let g:syntastic_yaml_jsyaml_quiet_messages = {
-      \ 'regex': [
-        \ 'unknown tag !<!ruby/\(object:\(\w\|:\)*\|regexp\)>'] }
-
-let g:syntastic_go_checkers = ['go']
-let g:syntastic_go_govet_quiet_messages = {
-  \ 'regex': ['main redeclared in this block'] }
-
-nmap <C-s> :SyntasticCheck<CR>
-nmap <M-s> :SyntasticReset<CR>
+nmap <C-s> :ALELint<CR>
+nmap <M-s> :ALEReset<CR>
 nmap <M-h> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
   \ "> trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
