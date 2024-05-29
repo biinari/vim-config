@@ -1,5 +1,5 @@
 " personal filetype file
-if exists("did_load_filetypes")
+if exists('did_load_filetypes')
   finish
 endif
 augroup filetypedetect
