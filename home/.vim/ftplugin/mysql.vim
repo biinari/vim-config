@@ -1,3 +1,4 @@
+" vint: -ProhibitCommandRelyOnUser -ProhibitCommandWithUnintendedSideEffect
 function! AuditCut()
 	silent 1,/^INSERT/ d
 	silent %s/^INSERT.*\n//e
@@ -40,3 +41,4 @@ function! CharsetConv()
 	execute '1,' . s:half . 's/\(\(ALTER TABLE `[^`]*` MODIFY `[^`]*` BLOB;\n\)\+\)\(\(ALTER TABLE `[^`]*` DROP \(UNIQUE \)\?KEY `[^`]*`;\n\)\+\)/\3\1/e'
 endfunction
 command! -nargs=0 CharsetConv call CharsetConv()
+" vint: +ProhibitCommandRelyOnUser +ProhibitCommandWithUnintendedSideEffect
