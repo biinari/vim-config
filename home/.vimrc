@@ -106,7 +106,6 @@ augroup vimrc
   autocmd BufWritePost *.tf,*.tfvars silent !terraform fmt %
 augroup END
 
-set nocompatible " be iMproved
 syntax on
 filetype off     " required by Vundle
 if !has('nvim')
