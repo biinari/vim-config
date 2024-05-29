@@ -101,7 +101,7 @@ augroup vimrc
   " v2-ember-web-server
   autocmd BufEnter */v2-ember-web-server/* let b:ale_linters = { 'javascript': ['standard'] }
 
-  autocmd BufWritePost *.tf,*.tfvars silent !$GOBIN/terraform fmt %
+  autocmd BufWritePost *.tf,*.tfvars silent !terraform fmt %
 augroup END
 
 set nocompatible " be iMproved
