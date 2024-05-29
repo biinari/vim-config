@@ -41,7 +41,7 @@ augroup END
 
 let g:ale_c_parse_makefile = 1
 " Shellcheck ignore SC2154: var is referenced but not assigned
-let g:ale_sh_shellcheck_options = "-e SC2154"
+let g:ale_sh_shellcheck_options = '-e SC2154'
 
 let g:ale_linter_aliases = {
       \ 'ghmarkdown': ['markdown']
@@ -52,7 +52,7 @@ let g:ale_linters_ignore = {
 
 function! EnableBladeTags()
   " blade.php open / close tags
-  if (exists("php_parent_error_open") && php_parent_error_open)
+  if (exists('php_parent_error_open') && php_parent_error_open)
     syn region phpRegion matchgroup=Delimiter start="@php" end="@endphp" contains=@phpClTop
   else
     syn region phpRegion matchgroup=Delimiter start="@php" end="@endphp" contains=@phpClTop keepend
@@ -122,7 +122,7 @@ set suffixes+=.hi
 
 "set guioptions-=T " disable the toolbar
 set guioptions=aei " Autoselect, tab pages, vim icon.
-let g:tex_flavor="latex"
+let g:tex_flavor='latex'
 if has('nvim')
   set guifont=Monospace:h8
 else
@@ -139,8 +139,8 @@ if !exists('s:includedVundle')
   let s:hasVundle=1
   let s:vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
   if !filereadable(s:vundle_readme)
-      echo "Installing Vundle..."
-      echo ""
+      echo 'Installing Vundle...'
+      echo ''
       silent !mkdir -p ~/.vim/bundle
       silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
       let s:hasVundle=0
@@ -200,8 +200,8 @@ if !exists('s:includedVundle')
 
   call vundle#end() " required by Vundle
   if s:hasVundle == 0
-      echo "Installing Plugins, please ignore key map error messages"
-      echo ""
+      echo 'Installing Plugins, please ignore key map error messages'
+      echo ''
       :PluginInstall
       let s:hasVundle=1
   endif
@@ -222,8 +222,8 @@ hi String guifg=#cc33ee ctermfg=DarkMagenta
 " let g:go_highlight_chan_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 
-let g:go_template_file = $HOME."/.vim/templates/go/hello.go"
-let g:go_template_test_file = $HOME."/.vim/templates/go/hello_test.go"
+let g:go_template_file = $HOME.'/.vim/templates/go/hello.go'
+let g:go_template_test_file = $HOME.'/.vim/templates/go/hello_test.go'
 
 hi DiffText term=reverse cterm=bold ctermbg=0 gui=bold guibg=Red guifg=Black ctermfg=White
 
@@ -278,7 +278,7 @@ function! ToggleMaxHeight()
   if &lines > 24
     set lines=23
   else
-    if has("gui_running")
+    if has('gui_running')
       set lines=999
     else
       set lines=53
@@ -289,7 +289,7 @@ function! ToggleMaxWidth()
   if &columns > 201
     set columns=80
   elseif &columns > 160
-    if has("gui_running")
+    if has('gui_running')
       set columns=999
     else
       set columns=283
@@ -303,10 +303,10 @@ endfunction
 map <M-PageUp> :call ToggleMaxHeight()<CR>
 map <M-PageDown> :call ToggleMaxWidth()<CR>
 
-if exists("g:EditorConfig_exclude_patterns")
+if exists('g:EditorConfig_exclude_patterns')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 endif
 
-if exists("g:vdebug_options")
+if exists('g:vdebug_options')
   let g:vdebug_options = { 'continuous_mode': 1 }
 endif

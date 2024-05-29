@@ -1,4 +1,4 @@
-if exists("loaded_quotes")
+if exists('loaded_quotes')
 	finish
 endif
 let loaded_quotes = 1
