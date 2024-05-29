@@ -81,9 +81,9 @@ endfunction
 command! -nargs=0 -range Blocks <line1>,<line2>call Blocks()
 
 function! Retab4to2() range
-  set ts=4 sw=4 noet
+  set tabstop=4 shiftwidth=4 noexpandtab
   execute a:firstline . ',' . a:lastline . 'retab!'
-  set ts=2 sw=2 et
+  set tabstop=2 shiftwidth=2 expandtab
   execute a:firstline . ',' . a:lastline . 'retab!'
 endfunction
 command! -nargs=0 -range Retab4to2 <line1>,<line2>call Retab4to2()
