@@ -1,20 +1,6 @@
 set makeprg=jsl\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -conf\ '/etc/jsl.conf'\ -process\ %
 set errorformat=%f(%l):\ %m
 
-" Run JavaScript Lint from www.javascriptlint.com
-function! JSLint()
-  redir => message
-  silent ! jsl -nologo -nofilelisting -nosummary -nocontext -conf /etc/jsl.conf -output-format '__LINE__: __ERROR__' -process %
-  redir END
-  split new
-  silent put=message
-  silent %s///
-  1,2d
-  2
-  set nomodified
-endfunction
-command! -nargs=0 JSLint call JSLint()
-
 function! Whitespace() range
   execute a:firstline . ',' . a:lastline . 's/\m\s\+$//ce'
   " execute a:firstline . ',' . a:lastline . 's/\m\<\(function\)(/\1 (/gce'
