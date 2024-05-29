@@ -43,6 +43,9 @@ let g:ale_c_parse_makefile = 1
 " Shellcheck ignore SC2154: var is referenced but not assigned
 let g:ale_sh_shellcheck_options = "-e SC2154"
 
+let g:ale_linter_aliases = {
+      \ 'ghmarkdown': ['markdown']
+  \ }
 let g:ale_linters_ignore = {
   \   'go': ['golangci-lint']
   \ }
