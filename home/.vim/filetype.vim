@@ -38,7 +38,7 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.ex,*.exs setfiletype elixir
   autocmd BufRead,BufNewFile *.eex setfiletype elixir
   autocmd BufRead,BufNewFile *.tf,*.tfvars,*.hcl setfiletype terraform
-  autocmd BufRead,BufNewFile *.tpl setfiletype terraform
+  autocmd BufRead,BufNewFile *.tpl,*.tftpl setfiletype terraform
   autocmd BufRead,BufNewFile .terraformrc setfiletype terraform
   autocmd BufRead,BufNewFile _*.tf.sandbox.*,_*.tf.staging.*,_*.tf.preview.*,_*.tf.production.* setfiletype terraform
   autocmd BufRead,BufNewFile *.tfstate setfiletype javascript
