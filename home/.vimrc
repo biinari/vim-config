@@ -8,9 +8,9 @@ set expandtab
 set smarttab
 set scrolloff=4
 set scrollopt="ver,hor,jump"
-set fo-=r " Do not automatically insert a comment leader after an enter
-set fo-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
-set fo-=j " Remove a comment leader when joining lines
+set formatoptions-=r " Do not automatically insert a comment leader after an enter
+set formatoptions-=o " Do not insert a comment leader on pressing 'o' or 'O' in normal mode
+set formatoptions-=j " Remove a comment leader when joining lines
 "set nosmartindent
 "inoremap # X#
 set nohlsearch
@@ -21,7 +21,7 @@ set sidescroll=8
 set laststatus=1
 
 " Put swap files in ~/tmp using whole path name (replacing / with %)
-set dir=~/tmp//,/var/tmp//,/tmp//
+set directory=~/tmp//,/var/tmp//,/tmp//
 
 " Line break on words with a highlighted marker
 "let &showbreak = '| '
@@ -113,7 +113,7 @@ endif
 set ruler        " Show the cursor position all the time
 set showmatch    " Show matching brackets
 
-set nowb         " disable backup
+set nowritebackup  " disable backup
 set nrformats=bin,octal,hex
 
 " Suffixes that get lower priority when doing tab completion for filenames.
@@ -145,7 +145,7 @@ if !exists('s:includedVundle')
       silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
       let s:hasVundle=0
   endif
-  set rtp+=~/.vim/bundle/Vundle.vim
+  set runtimepath+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 
   " let Vundle manage Vundle
