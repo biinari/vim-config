@@ -52,11 +52,13 @@ let g:ale_linters_ignore = {
 
 function! EnableBladeTags()
   " blade.php open / close tags
+  " vint: -ProhibitUsingUndeclaredVariable : checked by exists
   if (exists('php_parent_error_open') && php_parent_error_open)
     syn region phpRegion matchgroup=Delimiter start="@php" end="@endphp" contains=@phpClTop
   else
     syn region phpRegion matchgroup=Delimiter start="@php" end="@endphp" contains=@phpClTop keepend
   endif
+  " vint: +ProhibitUsingUndeclaredVariable
 endfunction
 
 augroup vimrc
