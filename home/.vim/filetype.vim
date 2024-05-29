@@ -3,48 +3,49 @@ if exists("did_load_filetypes")
   finish
 endif
 augroup filetypedetect
-  au! BufRead,BufNewFile *.ldf setfiletype tex
-  au! BufRead,BufNewFile *.htc setfiletype javascript
-  au! BufRead,BufNewFile */db/structure.sql setfiletype pgsql
-  au! BufRead,BufNewFile *.sql setfiletype pgsql
-  au! BufRead,BufNewFile *.pkg,*.cls,*.proc	setfiletype docbk
-  au! BufRead,BufNewFile *.pp setfiletype puppet
-  au! BufRead,BufNewFile *.hsc setfiletype haskell
-  au! BufRead,BufNewFile *.sass setfiletype sass
-  au! BufRead,BufNewFile Appraisals,capfile,Capfile,Guardfile,Vagrantfile,Berksfile,*.thor setfiletype ruby
-  au! BufRead,BufNewFile */system/apache2/* setfiletype apache
-  au! BufRead,BufNewFile */crontabs/* setfiletype crontab
-  au! BufRead,BufNewFile *.md,*.markdown setfiletype ghmarkdown
-  au! BufRead,BufNewFile *.coffee setfiletype coffee
-  au! BufRead,BufNewFile *.fdoc,*.fdoc.* setfiletype yaml
-  au! BufRead,BufNewFile *.rdoc setfiletype rdoc
-  au! BufRead,BufNewFile *.slim setfiletype slim
-  au! BufRead,BufNewFile */.bundle/config setfiletype yaml
-  au! BufRead,BufNewFile glide.lock setfiletype yaml
-  au! BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
-  au! BufRead,BufNewFile haproxy.cfg setfiletype haproxy
-  au! BufRead,BufNewFile *.{mustache,handlebars,hbs,hogan,hulk,hjs}{,.erb} set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
-  au! BufRead,BufNewFile /etc/systemd/system/*/*.conf setfiletype systemd
-  au! BufRead,BufNewFile *.json,*.jsonp setfiletype json
-  au! BufRead,BufNewFile /etc/php/php-fpm.conf,/etc/php/php-fpm.d/* setfiletype dosini
-  au! BufRead,BufNewFile *.ini,.flake8 setfiletype dosini
-  au! BufRead,BufNewFile *.bats setfiletype sh
-  au! BufRead,BufNewFile Gemfile.local setfiletype ruby
-  au! BufRead,BufNewFile monitrc,monit/conf.d/*.conf setfiletype monitrc
-  au! BufRead,BufNewFile *.scala setfiletype scala
-  au! BufRead,BufNewFile *.vcl setfiletype vcl
-  au! BufRead,BufNewFile rabbitmq.config setfiletype erlang
-  au! BufRead,BufNewFile *.ex,*.exs setfiletype elixir
-  au! BufRead,BufNewFile *.eex setfiletype elixir
-  au! BufRead,BufNewFile *.tf,*.tfvars,*.hcl setfiletype terraform
-  au! BufRead,BufNewFile *.tpl setfiletype terraform
-  au! BufRead,BufNewFile .terraformrc setfiletype terraform
-  au! BufRead,BufNewFile _*.tf.sandbox.*,_*.tf.staging.*,_*.tf.preview.*,_*.tf.production.* setfiletype terraform
-  au! BufRead,BufNewFile *.tfstate setfiletype javascript
-  au! BufRead,BufNewFile .env setfiletype conf
-  au! BufRead,BufNewFile *.ts setfiletype typescript
-  au! BufRead,BufNewFile PULLREQ_EDITMSG setfiletype gitcommit
-  au! BufRead,BufNewFile *.blade.php setfiletype blade
-  au! BufRead,BufNewFile go.mod,go.sum setfiletype gomod
-  au! BufRead,BufNewFile Dockerfile.* setfiletype dockerfile
+  autocmd!
+  autocmd BufRead,BufNewFile *.ldf setfiletype tex
+  autocmd BufRead,BufNewFile *.htc setfiletype javascript
+  autocmd BufRead,BufNewFile */db/structure.sql setfiletype pgsql
+  autocmd BufRead,BufNewFile *.sql setfiletype pgsql
+  autocmd BufRead,BufNewFile *.pkg,*.cls,*.proc	setfiletype docbk
+  autocmd BufRead,BufNewFile *.pp setfiletype puppet
+  autocmd BufRead,BufNewFile *.hsc setfiletype haskell
+  autocmd BufRead,BufNewFile *.sass setfiletype sass
+  autocmd BufRead,BufNewFile Appraisals,capfile,Capfile,Guardfile,Vagrantfile,Berksfile,*.thor setfiletype ruby
+  autocmd BufRead,BufNewFile */system/apache2/* setfiletype apache
+  autocmd BufRead,BufNewFile */crontabs/* setfiletype crontab
+  autocmd BufRead,BufNewFile *.md,*.markdown setfiletype ghmarkdown
+  autocmd BufRead,BufNewFile *.coffee setfiletype coffee
+  autocmd BufRead,BufNewFile *.fdoc,*.fdoc.* setfiletype yaml
+  autocmd BufRead,BufNewFile *.rdoc setfiletype rdoc
+  autocmd BufRead,BufNewFile *.slim setfiletype slim
+  autocmd BufRead,BufNewFile */.bundle/config setfiletype yaml
+  autocmd BufRead,BufNewFile glide.lock setfiletype yaml
+  autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
+  autocmd BufRead,BufNewFile haproxy.cfg setfiletype haproxy
+  autocmd BufRead,BufNewFile *.{mustache,handlebars,hbs,hogan,hulk,hjs}{,.erb} set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
+  autocmd BufRead,BufNewFile /etc/systemd/system/*/*.conf setfiletype systemd
+  autocmd BufRead,BufNewFile *.json,*.jsonp setfiletype json
+  autocmd BufRead,BufNewFile /etc/php/php-fpm.conf,/etc/php/php-fpm.d/* setfiletype dosini
+  autocmd BufRead,BufNewFile *.ini,.flake8 setfiletype dosini
+  autocmd BufRead,BufNewFile *.bats setfiletype sh
+  autocmd BufRead,BufNewFile Gemfile.local setfiletype ruby
+  autocmd BufRead,BufNewFile monitrc,monit/conf.d/*.conf setfiletype monitrc
+  autocmd BufRead,BufNewFile *.scala setfiletype scala
+  autocmd BufRead,BufNewFile *.vcl setfiletype vcl
+  autocmd BufRead,BufNewFile rabbitmq.config setfiletype erlang
+  autocmd BufRead,BufNewFile *.ex,*.exs setfiletype elixir
+  autocmd BufRead,BufNewFile *.eex setfiletype elixir
+  autocmd BufRead,BufNewFile *.tf,*.tfvars,*.hcl setfiletype terraform
+  autocmd BufRead,BufNewFile *.tpl setfiletype terraform
+  autocmd BufRead,BufNewFile .terraformrc setfiletype terraform
+  autocmd BufRead,BufNewFile _*.tf.sandbox.*,_*.tf.staging.*,_*.tf.preview.*,_*.tf.production.* setfiletype terraform
+  autocmd BufRead,BufNewFile *.tfstate setfiletype javascript
+  autocmd BufRead,BufNewFile .env setfiletype conf
+  autocmd BufRead,BufNewFile *.ts setfiletype typescript
+  autocmd BufRead,BufNewFile PULLREQ_EDITMSG setfiletype gitcommit
+  autocmd BufRead,BufNewFile *.blade.php setfiletype blade
+  autocmd BufRead,BufNewFile go.mod,go.sum setfiletype gomod
+  autocmd BufRead,BufNewFile Dockerfile.* setfiletype dockerfile
 augroup END
