@@ -106,8 +106,6 @@ augroup vimrc
   autocmd BufWritePost *.tf,*.tfvars silent !terraform fmt %
 augroup END
 
-syntax on
-filetype off     " required by Vundle
 if !has('nvim')
   set history=200
 endif
@@ -131,83 +129,73 @@ else
 endif
 set background=dark
 
-colorscheme koehler
-" dark:  candycode fruity koehler motus tango torte
-" light: sienna tolerable
-
-if !exists('s:includedVundle')
-  let s:includedVundle = 1
-  let s:hasVundle=1
-  let s:vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-  if !filereadable(s:vundle_readme)
-      echo 'Installing Vundle...'
-      echo ''
-      silent !mkdir -p ~/.vim/bundle
-      silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-      let s:hasVundle=0
+if !exists('s:includedPlug')
+  let s:includedPlug = 1
+  let s:hasPlug=1
+  let s:plug_autoload=expand('~/.vim/autoload/plug.vim')
+  if !filereadable(s:plug_autoload)
+    echo 'Installing vim-plug ...'
+    echo ''
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let s:hasPlug=0
   endif
-  set runtimepath+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-
-  " let Vundle manage Vundle
-  " required by Vundle
-  Plugin 'VundleVim/Vundle.vim'
+  call plug#begin()
 
   " original repos on github
-  Plugin 'editorconfig/editorconfig-vim'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-rhubarb'
-  Plugin 'vim-ruby/vim-ruby'
-  Plugin 'tpope/vim-bundler'
-  Plugin 'tpope/vim-rails.git'
-  Plugin 'tpope/vim-rake.git'
-  "Plugin 'tpope/vim-projectionist.git'
-  Plugin 'othree/html5.vim'
-  Plugin 'kchmck/vim-coffee-script'
-  Plugin 'cakebaker/scss-syntax.vim'
-  Plugin 'tpope/vim-haml'
-  "Plugin 'rodjek/vim-puppet'
-  "Plugin 'joonty/vdebug'
-  Plugin 'jtratner/vim-flavored-markdown'
-  Plugin 'slim-template/vim-slim'
-  Plugin 'biinari/php.vim'
-  Plugin 'biinari/vim-blade'
-  Plugin 'exu/pgsql.vim'
-  Plugin 'mustache/vim-mustache-handlebars'
-  Plugin 'dense-analysis/ale'
-  Plugin 'elzr/vim-json'
-  "Plugin 'evidens/vim-twig'
-  "Plugin 'tmatilai/vim-monit'
-  Plugin 'derekwyatt/vim-scala'
-  Plugin 'smerrill/vcl-vim-plugin'
-  "Plugin 'elixir-lang/vim-elixir'
-  Plugin 'hashivim/vim-terraform'
-  " master currently broken ( 2020-07-06 2c6bffb4 )
-  " TODO: How can we install stable release instead of github master?
-  Plugin 'fatih/vim-go'
-  "Plugin 'leafgarland/typescript-vim'
-  Plugin 'ajorgensen/vim-markdown-toc'
-  Plugin 'aklt/plantuml-syntax'
-  Plugin 'isobit/vim-caddyfile'
+  Plug 'editorconfig/editorconfig-vim'
+  " Plug 'prabirshrestha/vim-lsp'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'vim-ruby/vim-ruby'
+  "Plug 'hallison/vim-rdoc'
+  Plug 'tpope/vim-bundler'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-rake'
+  "Plug 'tpope/vim-projectionist'
+  Plug 'othree/html5.vim'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'tpope/vim-haml'
+  "Plug 'rodjek/vim-puppet'
+  "Plug 'joonty/vdebug'
+  Plug 'jtratner/vim-flavored-markdown'
+  Plug 'slim-template/vim-slim'
+  Plug 'biinari/php.vim'
+  Plug 'biinari/vim-blade'
+  Plug 'blueyed/smarty.vim'
+  Plug 'exu/pgsql.vim'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'dense-analysis/ale'
+  Plug 'elzr/vim-json'
+  "Plug 'evidens/vim-twig'
+  "Plug 'tmatilai/vim-monit'
+  Plug 'derekwyatt/vim-scala'
+  Plug 'smerrill/vcl-vim-plugin'
+  "Plug 'elixir-lang/vim-elixir'
+  Plug 'hashivim/vim-terraform'
+  Plug 'fatih/vim-go', { 'tag': '*' }
+  "Plug 'leafgarland/typescript-vim'
+  Plug 'ajorgensen/vim-markdown-toc'
+  Plug 'aklt/plantuml-syntax'
+  Plug 'isobit/vim-caddyfile'
+  Plug 'adelarsq/vim-matchit'
+  Plug 'chr4/nginx.vim'
+  Plug 'Joorem/vim-haproxy'
+  Plug 'lepture/vim-jinja'
+  "Plug 'vim-scripts/L9'
 
-  " vim-scripts repos
-  "Plugin 'L9'
-  Plugin 'smarty-syntax'
-  Plugin 'matchit.zip'
-  "Plugin 'RDoc'
-  Plugin 'nginx.vim'
-  Plugin 'haproxy'
-  Plugin 'Jinja'
-
-  call vundle#end() " required by Vundle
-  if s:hasVundle == 0
+  call plug#end() " required by vim-plug
+  if s:hasPlug == 0
       echo 'Installing Plugins, please ignore key map error messages'
       echo ''
-      :PluginInstall
-      let s:hasVundle=1
+      :PlugInstall
+      let s:hasPlug=1
   endif
 endif
-filetype plugin indent on " required by Vundle
+
+silent! colorscheme koehler
+" dark:  candycode fruity koehler motus tango torte
+" light: sienna tolerable
 
 "let php_sql_query = 1
 let php_sql_heredoc = 0
