@@ -51,4 +51,5 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile go.mod,go.sum setfiletype gomod
   autocmd BufRead,BufNewFile Dockerfile.* setfiletype dockerfile
   autocmd BufRead,BufNewFile *.j2 setfiletype jinja
+  autocmd BufRead,BufNewFile */.aws/config,*/.aws/credentials setfiletype dosini
 augroup END
