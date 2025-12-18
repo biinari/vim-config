@@ -22,6 +22,8 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.slim setfiletype slim
   autocmd BufRead,BufNewFile */.bundle/config setfiletype yaml
   autocmd BufRead,BufNewFile glide.lock setfiletype yaml
+  " nette-neon is similar enough to yaml
+  autocmd BufRead,BufNewFile *.neon,*.neon.dist setfiletype yaml
   autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
   autocmd BufRead,BufNewFile haproxy.cfg setfiletype haproxy
   autocmd BufRead,BufNewFile *.{mustache,handlebars,hbs,hogan,hulk,hjs}{,.erb} set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
