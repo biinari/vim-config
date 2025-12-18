@@ -318,3 +318,8 @@ endif
 if exists('g:vdebug_options')
   let g:vdebug_options = { 'continuous_mode': 1 }
 endif
+
+" hit ,h to identify the highlight group under the cursor
+map ,h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
