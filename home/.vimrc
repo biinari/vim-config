@@ -96,6 +96,8 @@ augroup vimrc
   " SC2207 split command output to array
   autocmd BufEnter bash_completion*.sh let b:ale_sh_shellcheck_options = "-s bash -e SC2034,SC2154,SC2164,SC2207"
 
+  autocmd FileType gitcommit let b:EditorConfig_disable = 1
+
   " v2-ember-web-app
   autocmd BufEnter */v2-ember-web-app/*,*/v2-ember-web-ui/* let b:ale_linters = { 'javascript': ['eslint'] }
   " v2-user-interface
@@ -154,6 +156,7 @@ if !exists('s:includedVundle')
   Plugin 'VundleVim/Vundle.vim'
 
   " original repos on github
+  Plugin 'editorconfig/editorconfig-vim'
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-rhubarb'
   Plugin 'vim-ruby/vim-ruby'
@@ -186,7 +189,6 @@ if !exists('s:includedVundle')
   Plugin 'fatih/vim-go'
   "Plugin 'leafgarland/typescript-vim'
   Plugin 'ajorgensen/vim-markdown-toc'
-  Plugin 'editorconfig/editorconfig-vim'
   Plugin 'aklt/plantuml-syntax'
   Plugin 'isobit/vim-caddyfile'
 
