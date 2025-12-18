@@ -173,7 +173,7 @@ if !exists('s:includedPlug')
   Plug 'smerrill/vcl-vim-plugin'
   "Plug 'elixir-lang/vim-elixir'
   Plug 'hashivim/vim-terraform'
-  Plug 'fatih/vim-go', { 'tag': '*' }
+  Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
   "Plug 'leafgarland/typescript-vim'
   Plug 'ajorgensen/vim-markdown-toc'
   Plug 'aklt/plantuml-syntax'
