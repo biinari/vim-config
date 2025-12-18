@@ -99,11 +99,11 @@ augroup vimrc
   autocmd FileType gitcommit let b:EditorConfig_disable = 1
 
   " v2-ember-web-app
-  autocmd BufEnter */v2-ember-web-app/*,*/v2-ember-web-ui/* let b:ale_linters = { 'javascript': ['eslint'] }
+  autocmd BufRead,BufNewFile */v2-ember-web-app/*,*/v2-ember-web-ui/* let b:ale_linters = { 'javascript': ['eslint'] }
   " v2-user-interface
-  autocmd BufEnter */user-interface/app/assets/javascripts/* let b:ale_linters = { 'javascript': ['jscs', 'jshint'] }
+  autocmd BufRead,BufNewFile */user-interface/app/assets/javascripts/* let b:ale_linters = { 'javascript': ['jscs', 'jshint'] }
   " v2-ember-web-server
-  autocmd BufEnter */v2-ember-web-server/* let b:ale_linters = { 'javascript': ['standard'] }
+  autocmd BufRead,BufNewFile */v2-ember-web-server/* let b:ale_linters = { 'javascript': ['standard'] }
 
   autocmd BufWritePost *.tf,*.tfvars silent !terraform fmt %
 augroup END
