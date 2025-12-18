@@ -50,4 +50,5 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.blade.php setfiletype blade
   autocmd BufRead,BufNewFile go.mod,go.sum setfiletype gomod
   autocmd BufRead,BufNewFile Dockerfile.* setfiletype dockerfile
+  autocmd BufRead,BufNewFile *.j2 setfiletype jinja
 augroup END
