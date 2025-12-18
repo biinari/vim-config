@@ -212,6 +212,8 @@ endif
 filetype plugin indent on " required by Vundle
 
 "let php_sql_query = 1
+let php_sql_heredoc = 0
+let php_sql_nowdoc = 0
 "let php_html_in_strings = 1
 let php_folding = 3
 let php_nested_functions = 1
