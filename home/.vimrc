@@ -172,7 +172,7 @@ if !exists('s:includedVundle')
   "Plugin 'joonty/vdebug'
   Plugin 'jtratner/vim-flavored-markdown'
   Plugin 'slim-template/vim-slim'
-  Plugin 'StanAngeloff/php.vim'
+  Plugin 'biinari/php.vim'
   Plugin 'biinari/vim-blade'
   Plugin 'exu/pgsql.vim'
   Plugin 'mustache/vim-mustache-handlebars'
