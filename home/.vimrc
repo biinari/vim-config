@@ -311,6 +311,9 @@ map <M-PageDown> :call ToggleMaxWidth()<CR>
 if exists('g:EditorConfig_exclude_patterns')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 endif
+if exists('g:EditorConfig_max_line_indicator')
+  let g:EditorConfig_max_line_indicator = 'none'
+endif
 
 if exists('g:vdebug_options')
   let g:vdebug_options = { 'continuous_mode': 1 }
