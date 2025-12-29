@@ -3,3 +3,4 @@ home/.vim/spell/*
 
 # vim-plug
 home/.vim/plugged/
+home/.vim/autoload/plug.vim
