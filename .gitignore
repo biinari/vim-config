@@ -1,4 +1,5 @@
 .netrwhist
-# Vundle
-home/.vim/bundle/
 home/.vim/spell/*
+
+# vim-plug
+home/.vim/plugged/
